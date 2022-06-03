@@ -1,0 +1,80 @@
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\appsettings.json
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.exe
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.deps.json
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.runtimeconfig.json
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.runtimeconfig.dev.json
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.dll
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\ref\PswProject.dll
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.pdb
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.Views.dll
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.Views.pdb
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.csproj.AssemblyReference.cache
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.AssemblyInfoInputs.cache
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.AssemblyInfo.cs
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.csproj.CoreCompileInputs.cache
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.RazorAssemblyInfo.cache
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.RazorAssemblyInfo.cs
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\staticwebassets\PswProject.StaticWebAssets.Manifest.cache
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\staticwebassets\PswProject.StaticWebAssets.xml
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\scopedcss\bundle\PswProject.styles.css
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.TagHelpers.input.cache
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.TagHelpers.output.cache
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.RazorCoreGenerate.cache
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\Razor\Pages\Privacy.cshtml.g.cs
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\Razor\Pages\Shared\_Layout.cshtml.g.cs
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\Razor\Pages\_ViewImports.cshtml.g.cs
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\Razor\Pages\_ViewStart.cshtml.g.cs
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.RazorTargetAssemblyInfo.cache
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.RazorTargetAssemblyInfo.cs
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.Views.pdb
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.dll
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\ref\PswProject.dll
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.pdb
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.genruntimeconfig.cache
+C:\Users\Ivana\Desktop\PSW projekat\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.csproj.CopyComplete
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\appsettings.json
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.exe
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.deps.json
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.runtimeconfig.json
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.runtimeconfig.dev.json
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.dll
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\ref\PswProject.dll
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.pdb
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.Views.dll
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\bin\Debug\net5.0\PswProject.Views.pdb
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.csproj.AssemblyReference.cache
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.AssemblyInfoInputs.cache
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.AssemblyInfo.cs
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.csproj.CoreCompileInputs.cache
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.RazorAssemblyInfo.cache
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.RazorAssemblyInfo.cs
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\staticwebassets\PswProject.StaticWebAssets.Manifest.cache
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\staticwebassets\PswProject.StaticWebAssets.xml
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\scopedcss\bundle\PswProject.styles.css
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.TagHelpers.input.cache
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.TagHelpers.output.cache
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.RazorCoreGenerate.cache
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\Razor\Pages\Privacy.cshtml.g.cs
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\Razor\Pages\Shared\_Layout.cshtml.g.cs
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\Razor\Pages\_ViewImports.cshtml.g.cs
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\Razor\Pages\_ViewStart.cshtml.g.cs
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.RazorTargetAssemblyInfo.cache
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.RazorTargetAssemblyInfo.cs
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.Views.pdb
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.dll
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\ref\PswProject.dll
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.pdb
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.genruntimeconfig.cache
+C:\Users\Strahx\Desktop\PSW\PSW-projekat\backend\PswProject\PswProject\obj\Debug\net5.0\PswProject.csproj.CopyComplete

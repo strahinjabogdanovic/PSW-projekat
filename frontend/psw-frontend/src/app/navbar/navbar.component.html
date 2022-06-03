@@ -1,0 +1,7 @@
+<mat-toolbar color="primary">
+    <span>
+      <a mat-button routerLink="/landingPage">Home</a>
+    </span>
+    <div class="spacer"></div>
+      <a *ngIf="role != 'PATIENT' && role != 'ADMIN'" mat-button routerLink="/registration">Registration</a>
+</mat-toolbar>
