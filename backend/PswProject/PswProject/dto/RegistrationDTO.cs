@@ -8,42 +8,31 @@ namespace PswProject.dto
 {
     public class RegistrationDTO
     {
-        private String name;
-        private String surname;
-        private String username;
-        private String password;
-        private String repeatPassword;
-        private String phone;
-        private String jmbg;
-        private String address;
-        private Gender gender;
+        public int Id { get; set; }
+        public String Name { get; set; }
+        public String Surname { get; set; }
+        public String Username { get; set; }
+        public String Password { get; set; }
+        public String Phone { get; set; }
+        public String Jmbg { get; set; }
+        public String Address { get; set; }
+        public String Gender { get; set; }
+        public Boolean Blocked { get; set; }
 
         public RegistrationDTO() { }
 
-        public String getUsername()
+        public RegistrationDTO(int id, string name, string surname, string username, string password, string phone, string jmbg, string address, string gender, bool blocked)
         {
-            return username;
+            Id = id;
+            Name = name;
+            Surname = surname;
+            Username = username;
+            Password = password;
+            Phone = phone;
+            Jmbg = jmbg;
+            Address = address;
+            Gender = gender;
+            Blocked = blocked;
         }
-
-        public void setUsername(String username)
-        {
-            this.username = username;
-        }
-        public String getPassword()
-        {
-            return password;
-        }
-
-        public void setPassword(String password)
-        {
-            this.password = password;
-        }
-
-        public String Name { get => name; set => name = value; }
-        public String Surname { get => surname; set => surname = value; }
-        public String Phone { get => phone; set => phone = value; }
-        public String Jmbg { get => jmbg; set => jmbg = value; }
-        public String Address { get => address; set => address = value; }
-        public Gender Gender { get => gender; set => gender = value; }
     }
 }

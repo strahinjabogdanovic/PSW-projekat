@@ -9,5 +9,6 @@ namespace PswProject.repository
     public interface UserRepository: IGenericRepository<User, string>
     {
         User save(User user);
+        User findOneByUsername(String username);
     }
 }

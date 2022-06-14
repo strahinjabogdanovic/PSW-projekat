@@ -1,6 +1,8 @@
 ﻿using PswProject.dto;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,128 +10,63 @@ namespace PswProject.model
 {
     public class User
     {
-        private int id;
-        private String name;
-        private String surname;
-        private String username;
-        private String password;
-        private String phone;
-        private String jmbg;
-        private Role role;
-        private String address;
-        private Gender gender;
-        private Boolean blocked;
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public String Name { get; set; }
+        public String Surname { get; set; }
+        public String Username { get; set; }
+        public String Password { get; set; }
+        public String Phone { get; set; }
+        public String Jmbg { get; set; }
+        public Role Role { get; set; }
+        public String Address { get; set; }
+        public Gender Gender { get; set; }
+        public Boolean Blocked { get; set; }
 
         public User(RegistrationDTO registrationDTO) 
         {
-            this.username = registrationDTO.getUsername();
-            this.password = registrationDTO.getPassword();
+            Name = registrationDTO.Name;
+            Surname = registrationDTO.Surname;
+            Username = registrationDTO.Username;
+            Password = registrationDTO.Password;
+            Phone = registrationDTO.Phone;
+            Jmbg = registrationDTO.Jmbg;
+            Address = registrationDTO.Address;
+            if (registrationDTO.Gender.Equals(Gender.MALE.ToString()))
+                Gender = Gender.MALE;
+            else 
+                Gender = Gender.FEMALE;
+            Blocked = registrationDTO.Blocked;
         }
 
         public User(int id, string name, string surname, string username, string password, string phone, string jmbg, Role role, string address, Gender gender, bool blocked)
         {
-            this.id = id;
-            this.name = name;
-            this.surname = surname;
-            this.username = username;
-            this.password = password;
-            this.phone = phone;
-            this.jmbg = jmbg;
-            this.role = role;
-            this.address = address;
-            this.gender = gender;
-            this.blocked = blocked;
+            Id = id;
+            Name = name;
+            Surname = surname;
+            Username = username;
+            Password = password;
+            Phone = phone;
+            Jmbg = jmbg;
+            Role = role;
+            Address = address;
+            Gender = gender;
+            Blocked = blocked;
         }
 
-        public int getId()
+        public User(int id, string name, string surname, string username, string password, string phone, string jmbg, string address, Gender gender, bool blocked)
         {
-            return id;
+            Id = id;
+            Name = name;
+            Surname = surname;
+            Username = username;
+            Password = password;
+            Phone = phone;
+            Jmbg = jmbg;
+            Address = address;
+            Gender = gender;
+            Blocked = blocked;
         }
-
-        public void setId(int id)
-        {
-            this.id = id;
-        }
-
-        public String getUsername()
-        {
-            return username;
-        }
-
-        public void setUsername(String username)
-        {
-            this.username = username;
-        }
-
-        public String getPassword()
-        {
-            return password;
-        }
-
-        public void setPassword(String password)
-        {
-            this.password = password;
-        }
-
-        public String getName()
-        {
-            return name;
-        }
-
-        public void setName(String name)
-        {
-            this.name = name;
-        }
-
-        public String getSurname()
-        {
-            return surname;
-        }
-
-        public void setSurname(String surname)
-        {
-            this.surname = surname;
-        }
-
-        public Role getRole()
-        {
-            return role;
-        }
-
-        public void setRole(Role role)
-        {
-            this.role = role;
-        }
-
-        public String getPhone()
-        {
-            return phone;
-        }
-
-        public void setPhone(String phone)
-        {
-            this.phone = phone;
-        }
-
-        public Gender getGender()
-        {
-            return gender;
-        }
-
-        public void setGender(Gender gender)
-        {
-            this.gender = gender;
-        }
-
-        public Boolean getBlocked()
-        {
-            return blocked;
-        }
-
-        public void setBlocked(Boolean blocked)
-        {
-            this.blocked = blocked;
-        }
-
     }
 }

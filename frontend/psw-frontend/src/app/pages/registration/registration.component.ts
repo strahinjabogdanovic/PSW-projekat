@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
+import { RegistrationDTO } from './registration.dto';
 
 interface Gender {
   value: string;
@@ -19,28 +20,26 @@ export class RegistrationComponent implements OnInit {
   name: string = "";
   surname : string = "";
   password : string = "";
-  checkPassword : string = "";
   phone : string = "";
-  jmbg : string = "";
   address : string = "";
+  jmbg : string = "";
   selectedValueGender = "Male";
-
   hide: boolean = true;
-  hideRp: boolean = true; 
+  role: string = "";
 
-  constructor(private fb: FormBuilder, private router: Router, private  userService: UserService) { }
+public register: RegistrationDTO = new RegistrationDTO()
 
-  //validacija za polja ako su prazna
+  constructor(private fb: FormBuilder,private userService : UserService, private router: Router) { }
+
   ngOnInit(): void {
     this.validateForm = this.fb.group({
       username: [null,[Validators.required]],
       name: [null, [Validators.required]],
       surname: [null, [Validators.required]],
       password: [null, [Validators.required]],
-      checkPassword: [null, [Validators.required, this.confirmationValidator]],
       phone: [null, [Validators.required]],
-      jmbg: [null, [Validators.required]],
-      address: [null, [Validators.required]]
+      address: [null, [Validators.required]],
+      jmbg: [null, [Validators.required]]
     });
   }
 
@@ -55,7 +54,7 @@ export class RegistrationComponent implements OnInit {
 
   genders: Gender[] = [
     {value: 'Male'},
-    {value: 'Female'},
+    {value: 'Female'}
   ];
 
   submitForm(): void {
@@ -64,33 +63,55 @@ export class RegistrationComponent implements OnInit {
       this.validateForm.controls[i].updateValueAndValidity();
     }
 
-    this.username = this.validateForm.value.username;
-    this.name = this.validateForm.value.name;
-    this.surname = this.validateForm.value.surname;
-    this.password = this.validateForm.value.password;
-    this.phone = this.validateForm.value.phone;
-    this.checkPassword = this.validateForm.value.checkPassword;
-    this.jmbg = this.validateForm.value.jmbg;
-    this.address = this.validateForm.value.address;
+    this.register.Name = this.validateForm.value.name;
+    this.register.Surname = this.validateForm.value.surname;
+    this.register.Username = this.validateForm.value.username;
+    this.register.Password = this.validateForm.value.password;
+    this.register.Phone = this.validateForm.value.phone;
+    this.register.Jmbg = this.validateForm.value.jmbg;
+    this.register.Address = this.validateForm.value.address;
+    this.register.Gender = this.selectedValueGender;
 
-    const body = {
-      username: this.username,
-      name: this.name,
-      surname: this.surname,
-      password : this.password,
-      repeatPassword: this.checkPassword,
-      phone : this.phone,
-      gender: this.selectedValueGender,   
-    }
-/*
-    if(this.validateForm.valid){
-      this.userService.registration(body).subscribe(data => { 
-          alert("Registration successful");
-          this.router.navigate(['login']);
-      }, error => {
-        console.log(error.status);
-        alert("Registration unsuccessful");
+   /*   const body = {
+        name: this.name,
+        surname: this.surname,
+        username: this.username,
+        password : this.password,
+        phone : this.phone,
+        jmbg : this.jmbg,
+        address : this.address,
+        gender: this.selectedValueGender,
+        role: "PATIENT"
+      }*/
+
+    /*  if(this.validateForm.valid){
+        console.log("ovde2")
+        this.userService.registration(body);
+        alert("Registration successfull");}
+        
+        /*subscribe({
+          next: () => { console.log("ovde3")
+            alert("Registration successfull");
+            this.router.navigate(['landingPage']);
+        },error: () => { 
+          alert("neces dalje");
+        }
       });
-    }*/
-  }
+      }/*/
+
+        console.log(this.register);
+        console.log("ovde2");
+        this.userService.registration(this.register).subscribe((data) => { 
+            console.log("ovde3")
+            alert("Registration successfull");
+            this.router.navigate(['landingPage']);
+        }, error => {
+          //console.log(body)
+          console.log(error.status);
+          if(error.status == 409){
+            alert("Username already exists");
+          }
+        });
+      
+    }
 }
