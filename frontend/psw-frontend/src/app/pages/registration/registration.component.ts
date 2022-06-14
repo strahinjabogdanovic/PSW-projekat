@@ -99,7 +99,6 @@ public register: RegistrationDTO = new RegistrationDTO()
       });
       }/*/
 
-        console.log(this.register);
         console.log("ovde2");
         this.userService.registration(this.register).subscribe((data) => { 
             console.log("ovde3")

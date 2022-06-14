@@ -33,7 +33,7 @@ namespace PswProject.model
             Phone = registrationDTO.Phone;
             Jmbg = registrationDTO.Jmbg;
             Address = registrationDTO.Address;
-            if (registrationDTO.Gender.Equals(Gender.MALE.ToString()))
+            if (registrationDTO.Gender.ToLower().Equals(Gender.MALE.ToString().ToLower()))
                 Gender = Gender.MALE;
             else 
                 Gender = Gender.FEMALE;

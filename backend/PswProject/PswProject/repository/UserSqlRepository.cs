@@ -24,11 +24,6 @@ namespace PswProject.repository
             throw new NotImplementedException();
         }
 
-        public User GetOne(string id)
-        {
-            throw new NotImplementedException();
-        }
-
         public User save(User user)
         {
             throw new NotImplementedException();
