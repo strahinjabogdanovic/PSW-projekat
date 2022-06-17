@@ -14,102 +14,7 @@ using System.Threading.Tasks;
 namespace PswProject
 {
     public class Startup
-    {/*
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
-        //private Server server;
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            //.AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options => Configuration.Bind("JwtSettings", options));
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("QKcOa8xPopVOliV6tpvuWmoKn4MOydSeIzUt4W4r1UlU2De7dTUYMlrgv3rU"));
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-           
-            // Adding Jwt Bearer  
-
-            .AddJwtBearer(options =>
-            {
-                options.SaveToken = true;
-                options.RequireHttpsMetadata = false;
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = securityKey,
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
-                    ValidateLifetime = true,
-                    ClockSkew = TimeSpan.Zero
-                };
-            });
-
-            services.AddControllers();
-
-            services.AddDbContext<MyDbContext>(options =>
-            options.UseNpgsql(GetDBConnectionString()).UseLazyLoadingProxies());
-
-            services.AddControllers().AddNewtonsoftJson(options =>
-            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-            );
-            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
-            {
-                builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader();
-
-            }));
-        }
-
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHostApplicationLifetime applicationLifetime)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseRouting();
-
-            app.UseCors("MyPolicy");
-
-           // app.UseAuthentication();  //dodato
-
-           // app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-            PrepDB.PrepPopulation(app);
-            server = new Server
-            {
-                Services = { Greeter.BindService(new GreeterService()), gRPCDrugPurchaseService.BindService(new DrugDemandServiceGrpc()) },
-                Ports = { new ServerPort(Configuration["HOSPITAL_GRPC_DOMAIN"] ?? "localhost", int.Parse(Configuration["HOSPITAL_GRPC_PORT"] ?? "4112"), ServerCredentials.Insecure) }
-            };
-            server.Start();
-            //applicationLifetime.ApplicationStopping.Register(OnShutdown);
-        }
-
-        private void OnShutdown()
-        {
-            if (server != null)
-            {
-                server.ShutdownAsync().Wait();
-            }
-        }
-       */
-        
-        
+    {
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -125,9 +30,10 @@ namespace PswProject
            services.AddDbContext<MyDbContext>(options =>
                         options.UseNpgsql(GetDBConnectionString()).UseLazyLoadingProxies());
 
-           /* services.AddDbContext<MyDbContext>(options =>
-                options.UseNpgsql(ConfigurationExtensions.GetConnectionString(Configuration, "MyDbContextConnectionString")).UseLazyLoadingProxies());*/
-           
+            services.AddControllers().AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
                 builder.AllowAnyOrigin()
@@ -147,8 +53,6 @@ namespace PswProject
 
             app.UseRouting();
 
-            //app.UseCors();
-            //app.UseCors("MyPolicy");
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseAuthorization();
@@ -166,8 +70,6 @@ namespace PswProject
             var user = Configuration["DBUser"] ?? "postgres";
             var password = Configuration["DBPassword"] ?? "123";
             var database = Configuration["DB"] ?? "psw";
-
-            //Console.WriteLine(server + port + user + password + database);
 
             if (server == null) return ConfigurationExtensions.GetConnectionString(Configuration, "MyDbContextConnectionString");
             return $"server={server}; port={port}; database={database}; User Id={user}; password={password}";

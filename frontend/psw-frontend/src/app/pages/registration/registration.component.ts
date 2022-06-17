@@ -20,14 +20,14 @@ export class RegistrationComponent implements OnInit {
   name: string = "";
   surname : string = "";
   password : string = "";
+  checkPassword : string = "";
   phone : string = "";
   address : string = "";
   jmbg : string = "";
   selectedValueGender = "Male";
   hide: boolean = true;
   role: string = "";
-
-public register: RegistrationDTO = new RegistrationDTO()
+  public register: RegistrationDTO = new RegistrationDTO();
 
   constructor(private fb: FormBuilder,private userService : UserService, private router: Router) { }
 
@@ -71,46 +71,17 @@ public register: RegistrationDTO = new RegistrationDTO()
     this.register.Jmbg = this.validateForm.value.jmbg;
     this.register.Address = this.validateForm.value.address;
     this.register.Gender = this.selectedValueGender;
-
-   /*   const body = {
-        name: this.name,
-        surname: this.surname,
-        username: this.username,
-        password : this.password,
-        phone : this.phone,
-        jmbg : this.jmbg,
-        address : this.address,
-        gender: this.selectedValueGender,
-        role: "PATIENT"
-      }*/
-
-    /*  if(this.validateForm.valid){
-        console.log("ovde2")
-        this.userService.registration(body);
-        alert("Registration successfull");}
-        
-        /*subscribe({
-          next: () => { console.log("ovde3")
+    console.log(this.register.Gender)
+      if(this.validateForm.valid){
+        this.userService.registration(this.register).subscribe(data => { 
             alert("Registration successfull");
-            this.router.navigate(['landingPage']);
-        },error: () => { 
-          alert("neces dalje");
-        }
-      });
-      }/*/
-
-        console.log("ovde2");
-        this.userService.registration(this.register).subscribe((data) => { 
-            console.log("ovde3")
-            alert("Registration successfull");
-            this.router.navigate(['landingPage']);
+            this.router.navigate(['login']);
         }, error => {
-          //console.log(body)
           console.log(error.status);
           if(error.status == 409){
             alert("Username already exists");
           }
         });
-      
+      }
     }
 }

@@ -24,6 +24,23 @@ namespace PswProject.model
         public Gender Gender { get; set; }
         public Boolean Blocked { get; set; }
 
+        public User() { }
+
+        public User(String username, String password, User p)
+        {
+            Id = p.Id;
+            Name = p.Name;
+            Surname = p.Surname;
+            Username = username;
+            Password = password;
+            Phone = p.Phone;
+            Jmbg = p.Jmbg;
+            Role = p.Role;
+            Address = p.Address;
+            Gender = p.Gender;
+            Blocked = p.Blocked;
+        }
+
         public User(RegistrationDTO registrationDTO) 
         {
             Name = registrationDTO.Name;
@@ -34,9 +51,13 @@ namespace PswProject.model
             Jmbg = registrationDTO.Jmbg;
             Address = registrationDTO.Address;
             if (registrationDTO.Gender.ToLower().Equals(Gender.MALE.ToString().ToLower()))
+            {
                 Gender = Gender.MALE;
+            }
             else 
+            {
                 Gender = Gender.FEMALE;
+            }
             Blocked = registrationDTO.Blocked;
         }
 
