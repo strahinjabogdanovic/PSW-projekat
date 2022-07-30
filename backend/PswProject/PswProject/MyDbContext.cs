@@ -10,6 +10,8 @@ namespace PswProject
     public class MyDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -23,18 +25,26 @@ namespace PswProject
             modelBuilder.Entity<User>(mb =>
             {
 
-               mb.HasData(
-               new User(1, "Marko", "Markovic", "miki98", "miki985@", "0641664608", "3009998805138", Role.ADMIN, 
-               "Bulevar Oslobodjenja 8", Gender.MALE, false ),
-               new User(2, "Milica", "Mikic", "mici97", "mici789@", "0652459871", "3009998805137", Role.PATIENT,
-               "Kisacka 5", Gender.FEMALE, false)
-               );
+                mb.HasData(
+                new User(1, "Marko", "Markovic", "miki98", "miki985@", "0641664608", "3009998805138", Role.ADMIN,
+                "Bulevar Oslobodjenja 8", Gender.MALE, false),
+                new User(2, "Milica", "Mikic", "mici97", "mici789@", "0652459871", "3009998805137", Role.PATIENT,
+                "Kisacka 5", Gender.FEMALE, false)
+                );
 
                 /*mb.OwnsOne(p => p.MedicalRecord).HasData(
                   new { PatientId = 1, HealthInsuranceNumber = "1ab", CompanyName = "WellCare" },
                   new { PatientId = 2, HealthInsuranceNumber = "2ab", CompanyName = "WellCare" });*/
             });
 
+            modelBuilder.Entity<Doctor>(mb =>
+            {
+                mb.HasData(
+                new Doctor(1, "Milan", "Popovic", Specialization.GENERAL),
+                new Doctor(2, "Milana", "Pilipovic", Specialization.CARDIOLOGIST)
+                );
+
+            });
 
         }
     }

@@ -17,10 +17,10 @@ export class PatientHomePageComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getToken();
+  //  this.getToken();
   }
 
-  private getToken(): void {
+  /*private getToken(): void {
     if(this.route.snapshot.params['token'] === undefined || this.route.snapshot.params['token'] === null){
       this.token = JSON.parse(localStorage.getItem('token') || '{}');
     }else{
@@ -53,5 +53,6 @@ export class PatientHomePageComponent implements OnInit {
 }
 function jwt_decode(token: string): any {
   throw new Error('Function not implemented.');
+}*/
 }
 

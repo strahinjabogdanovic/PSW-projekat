@@ -5,4 +5,5 @@
     <div class="spacer"></div>
       <a *ngIf="role != 'PATIENT' && role != 'ADMIN'" mat-button routerLink="/registration">Registration</a>
       <a *ngIf="role != 'PATIENT' && role != 'ADMIN'" mat-button routerLink="/login">Login</a>
+      <a *ngIf="role != 'PATIENT'" mat-button routerLink="/recommendedAppointment">Appointments</a>
 </mat-toolbar>

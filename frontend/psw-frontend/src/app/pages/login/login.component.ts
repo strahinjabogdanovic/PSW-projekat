@@ -76,13 +76,9 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("jwtToken", data);
       let tokenInfo = this.getDecodedAccessToken(data);
       if(tokenInfo !== null){
-      console.log(tokenInfo);
       localStorage.setItem('Id', tokenInfo.Id);
       localStorage.setItem('Role', tokenInfo.Role);
-      console.log(data)
-      console.log(tokenInfo.Role)
-      console.log(data.role)
-      if((tokenInfo.Role) === 'PATIENT'){
+            if((tokenInfo.Role) === 'PATIENT'){
         this.router.navigate(['patientHomePage']);
       }
     }
