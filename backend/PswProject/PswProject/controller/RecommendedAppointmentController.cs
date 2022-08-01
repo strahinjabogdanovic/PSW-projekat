@@ -36,7 +36,7 @@ namespace PswProject.controller
         }
 
 
-        [HttpPost("schedule")]
+        [HttpPost("/schedule")]
         public IActionResult Schedule(ScheduleDTO scheduleDTO)
         {
             Appointment appointment = AppointmentService.ScheduleAppointmentDTOToAppointment(scheduleDTO.Start, scheduleDTO.Id, scheduleDTO.PatientId);

@@ -117,15 +117,14 @@ export class RecommendAppointmentComponent implements OnInit {
 
     for(const d of this.doctors){
       if(d.nameAndSurname == this.doctorName){
-        this.doctorId = d.id;
+        this.doctorId = d.idD;
       }
     }
    
     this.recommendAppointmentService.Schedule(this.start, this.doctorId, this.id).subscribe(data => {
-     
+      console.log(this.doctorId);
+     alert("Zauzet termin u " + this.start);
     });
-
-    this.router.navigate(['medicalRecord']);
   }
 
 }

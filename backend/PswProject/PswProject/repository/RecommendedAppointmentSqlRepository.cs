@@ -48,6 +48,8 @@ namespace PswProject.repository
             public void Create(Appointment appointment)
             {
                 appointment.IdA = GetAll().Count + 1;
+                appointment.SurveyId = GetAll().Count + 101;
+                appointment.Status = AppointmentStatus.UPCOMING;
                 context.Appointments.Add(appointment);
                 context.SaveChanges();
             }

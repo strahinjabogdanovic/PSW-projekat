@@ -30,6 +30,6 @@ export class RecommendAppointmentService {
       Id : id,
       PatientId: patientId
     }
-    return this.http.post<any>(url + "/recommendedAppointment/schedule", body);
+    return this.http.post<any>(url + "/schedule", body);
   }
 }
