@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace PswProject.controller
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class RecommendedAppointmentController : ControllerBase
     {
@@ -26,7 +26,7 @@ namespace PswProject.controller
         }
 
 
-        [HttpPost]
+        [HttpPost("/recommendedAppointment")]
         public IActionResult Post(SearchAppointmentsDTO searchAppointments)
         {
             List<Appointment> appointments = appointmentService.GetAvailableAppointment(searchAppointments).ToList();

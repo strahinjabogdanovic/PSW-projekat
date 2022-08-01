@@ -8,7 +8,7 @@ namespace PswProject.repository
 {
         public class RecommendedAppointmentSqlRepository : AppointmentRepository
         {
-            private MyDbContext context;
+            private MyDbContext context { get; set; }
 
             public RecommendedAppointmentSqlRepository(MyDbContext context)
             {
@@ -42,8 +42,7 @@ namespace PswProject.repository
             //popraviti
             public List<Appointment> Get(int doctorId, DateTime date)
             {
-            //return GetAll().Where(a => a.DoctorId.Equals(doctorId) && a.StartTime.Date.CompareTo(date.Date) == 0).ToList();
-            return null;
+            return GetAll().Where(a => a.DoctorId.Equals(doctorId) && a.StartTime.Date.CompareTo(date.Date) == 0).ToList();
             }
 
             public void Create(Appointment appointment)

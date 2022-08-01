@@ -45,6 +45,18 @@ namespace PswProject.model
             this.canCancel = canCancel;
         }
 
+        public Appointment(int id, DateTime start, int duration, string description, int patientId, int doctorId, AppointmentStatus status, int survId)
+        {
+            IdA = id;
+            StartTime = start;
+            DurationInMinutes = duration;
+            AppointmentDescription = description;
+            DoctorId = doctorId;
+            UserId = patientId;
+            Status = status;
+            SurveyId = survId;
+        }
+
         public bool CheckBeforeDate(DateTime startDate, DateTime minDate)
         {
             if (startDate >= minDate || startDate == DateTime.Now.Date)

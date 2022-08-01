@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import { RecommendAppointmentService } from 'src/app/recommend-appointment.service';
 import { RecommendAppointmentDto } from './recommend-appointment-dto';
 import { DatePipe, formatDate } from '@angular/common';
@@ -16,7 +16,7 @@ export interface RecommendedAppointment{
   startDate: Date;
   endDate: Date;
   doctorId: number;
-  specializationId: number;
+  specialization: number;
   priority: number;
 }
 
@@ -34,9 +34,9 @@ export class RecommendAppointmentComponent implements OnInit {
   start: Date = new Date;
   doctorName: string = "";
   doctorId: number = 0;
-  id: any = "";
+  id: number = 0;
 
-  appointment: RecommendedAppointment = {startDate: new Date(),endDate: new Date(), doctorId: 0, specializationId: 0, priority: 1};
+  appointment: RecommendedAppointment = {startDate: new Date(),endDate: new Date(), doctorId: 0, specialization: 0, priority: 1};
   public returnAppointment: RecommendAppointmentDto;
 
 
@@ -76,12 +76,11 @@ export class RecommendAppointmentComponent implements OnInit {
 
     this.PrepareDTO();
      for(const d of this.doctors){
+      console.log("ovde");
        if(d.nameAndSurname == this.selectedDoctor.name){
-         this.returnAppointment.DoctorId = d.id;
-         console.log(this.doctorId);
-         this.returnAppointment.SpecializationId = d.specialityId;
+         this.returnAppointment.DoctorId = d.idD;
        }
-     }
+      }
 
     this.recommendAppointmentService.FindAppointments(this.returnAppointment).subscribe(data => {
       this.appointmentsRecomended = data;
@@ -104,7 +103,7 @@ export class RecommendAppointmentComponent implements OnInit {
   DoctorsNames(){
     for(const a of this.appointmentsRecomended){
       for(const d of this.doctors){
-        if(a.doctorId == d.id){
+        if(a.doctorId == d.idD){
           a.doctorFullName = d.nameAndSurname;
         }
       }
@@ -114,7 +113,7 @@ export class RecommendAppointmentComponent implements OnInit {
   schedule(element: { start: Date; doctorFullName: string; }) {
     this.start = element.start;
     this.doctorName = element.doctorFullName;
-    this.id = localStorage.getItem('id');
+    //this.id = localStorage.getItem('id');
 
     for(const d of this.doctors){
       if(d.nameAndSurname == this.doctorName){

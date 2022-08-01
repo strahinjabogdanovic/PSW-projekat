@@ -36,10 +36,6 @@ namespace PswProject.repository
 
         public List<Doctor> GetAll()
         {
-            foreach(Doctor d in dbContext.Doctors)
-            {
-                Console.WriteLine(d);
-            }
              return dbContext.Doctors.ToList();
         }
 

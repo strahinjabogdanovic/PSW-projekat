@@ -33,8 +33,6 @@ namespace PswProject.controller
         [HttpGet("{id}")]
         public IActionResult GetDoctorsBySpeciality(int id)
         {
-            Console.WriteLine(id);
-            //int idSpecialty = int.Parse(id);
             List<Doctor> result = new List<Doctor>();
             result = doctorService.GetDoctorsBySpeciality(id);
             return Ok(result);

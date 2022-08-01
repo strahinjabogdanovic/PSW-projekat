@@ -47,18 +47,19 @@ namespace PswProject.repository
         //popraviti
         public List<Appointment> GetOccupiedAppointmentsByDoctorAndDate(int idDoctor, DateTime chosenDate)
         {
+            Console.WriteLine("ovde");
             List<Appointment> newList = new List<Appointment>();
-            /*try
+            List<Appointment> n2 = new List<Appointment>();
+            try
             {
-                newList = (List<Appointment>)dbContext.Appointments.ToList().Where(s => s.StartTime.Date == chosenDate.Date)
+                newList = dbContext.Appointments.ToList().Where(s => s.StartTime.Date == chosenDate.Date)
                     .Where(s => s.DoctorId == idDoctor).ToList();
             }
             catch (Exception e)
             {
 
             }
-            return newList;*/
-            return null;
+            return n2;
         }
 
         public List<Appointment> Get(int doctorId, DateTime date)

@@ -13,11 +13,11 @@ namespace PswProject.service
     public class AppointmentService
     {
         private const int appointmentDurationInMunutes = 30;
-        private AppointmentRepository AppointmentRepository { get; }
+        private AppointmentRepository AppointmentRepository { get; set; }
         private AppointmentSqlRepository AppointmentSqlRepository { get; set; }
         private Appointment ChangingAppointment { get; set; }
         private RecommendedAppointmentSqlRepository RecommendedAppointmentSqlRepository { get; set; }
-        private DoctorRepository DoctorRepository { get; }
+        private DoctorRepository DoctorRepository { get; set; }
         private Appointment appointment = new Appointment();
 
 
@@ -167,8 +167,8 @@ namespace PswProject.service
 
         public List<Appointment> AvailableDoctorAndDateRange(SearchAppointmentsDTO searchAppointments)
         {
-            DateTime start = DateTime.Parse(searchAppointments.StartInterval);
-            DateTime end = DateTime.Parse(searchAppointments.EndInterval);
+            DateTime start = searchAppointments.StartInterval;
+            DateTime end = searchAppointments.EndInterval;
 
             List<Appointment> availableAppointments = new List<Appointment>();
 
@@ -217,7 +217,12 @@ namespace PswProject.service
 
         public List<Appointment> DoctorAndDate(int doctorId, DateTime date)
         {
-            return AppointmentRepository.Get(doctorId, date).ToList();
+            Console.WriteLine(doctorId);
+            //List<Appointment> temp = new List<Appointment>();
+            return AppointmentRepository.Get(doctorId, date);
+            //return temp;
+            //return AppointmentsForDoctorInDateRange(start, end, doctorId);
+            //return GetAppointmentsByDoctorAndDate(doctorId, date);
         }
 
         public List<Appointment> RecommendDoctor(SearchAppointmentsDTO searchAppointments)
@@ -234,8 +239,8 @@ namespace PswProject.service
 
         public List<Appointment> AppointmentsBeforeDate(SearchAppointmentsDTO searchAppointments)
         {
-            DateTime startDate = DateTime.Parse(searchAppointments.StartInterval).Date.AddDays(-1);
-            DateTime minDate = DateTime.Parse(searchAppointments.EndInterval).Date.AddDays(-5);
+            DateTime startDate = searchAppointments.StartInterval.Date.AddDays(-1);
+            DateTime minDate = searchAppointments.EndInterval.Date.AddDays(-5);
 
             if (minDate < DateTime.Now.Date)
                 minDate = DateTime.Now.Date;
@@ -253,8 +258,8 @@ namespace PswProject.service
 
         public List<Appointment> AppointmentsAfterDate(SearchAppointmentsDTO searchAppointments)
         {
-            DateTime endDate = DateTime.Parse(searchAppointments.StartInterval).Date.AddDays(1);
-            DateTime maxDate = DateTime.Parse(searchAppointments.EndInterval).Date.AddDays(5);
+            DateTime endDate = searchAppointments.StartInterval.Date.AddDays(1);
+            DateTime maxDate = searchAppointments.EndInterval.Date.AddDays(5);
 
             List<Appointment> allAvailableAppointments = new List<Appointment>();
 
@@ -299,8 +304,8 @@ namespace PswProject.service
         public List<Appointment> RecommendDatePriority(SearchAppointmentsDTO searchAppointments)
         {
             List<Doctor> doctors = DoctorRepository.GetDoctorsBySpeciality(searchAppointments.SpecializationId);
-            DateTime start = DateTime.Parse(searchAppointments.StartInterval);
-            DateTime end = DateTime.Parse(searchAppointments.EndInterval);
+            DateTime start = searchAppointments.StartInterval;
+            DateTime end = searchAppointments.EndInterval;
             List<Appointment> availableAppointments = new List<Appointment>();
             if (doctors != null)
             {

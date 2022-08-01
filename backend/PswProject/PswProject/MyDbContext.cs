@@ -46,6 +46,16 @@ namespace PswProject
 
             });
 
+            modelBuilder.Entity<Appointment>(mb =>
+            { 
+                mb.HasData(
+                new Appointment(1, new DateTime(2021, 12, 07, 16, 30, 00), 30, "All good", 1, 1, AppointmentStatus.UPCOMING, 123),
+                new Appointment(2, new DateTime(2021, 12, 31, 16, 30, 00), 30, "", 1, 1, AppointmentStatus.UPCOMING, 124),
+                new Appointment(3, new DateTime(2021, 12, 07, 14, 30, 00), 30, "All good", 2, 2, AppointmentStatus.UPCOMING, 125),
+                new Appointment(4, new DateTime(2022, 01, 30, 14, 00, 00), 30, "All good", 1, 0, AppointmentStatus.UPCOMING, 126)
+                );
+            });
+
         }
     }
 }
