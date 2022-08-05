@@ -9,11 +9,11 @@ const url = 'http://localhost:5000';
   providedIn: 'root'
 })
 export class AppointmentObserveService {
-  //url: string;
-  constructor(private http: HttpClient) { 
-    //this.url = "http://" + environment.apiUrl + ":" + environment.port +"/api";
-  }
-  GetAppointments(id: string): Observable<any> {
+
+  constructor(private http: HttpClient) {}
+  
+  GetAppointments(id: number): Observable<any> {
+    console.log(id);
     return this.http.get<any>(url + '/observeAppointments/',{params:{id: id}});
   }
 

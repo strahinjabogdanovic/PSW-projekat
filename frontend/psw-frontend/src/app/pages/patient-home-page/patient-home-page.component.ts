@@ -7,18 +7,18 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./patient-home-page.component.css']
 })
 export class PatientHomePageComponent implements OnInit {
-  public token: any;
-  public decodedToken: any;
+  id: any = "";
 
-  constructor(private route: ActivatedRoute, private router: Router) {
-
-
-
-   }
+  //constructor(private medicalRecordService: MedicalRecordService, private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-  //  this.getToken();
+    this.id = localStorage.getItem('id');
+    //this.medicalRecordService.GetMedicalRecord(this.id).subscribe((data: any)=>{
+
+   // });
   }
+}
+  //  this.getToken();
 
   /*private getToken(): void {
     if(this.route.snapshot.params['token'] === undefined || this.route.snapshot.params['token'] === null){
@@ -53,6 +53,6 @@ export class PatientHomePageComponent implements OnInit {
 }
 function jwt_decode(token: string): any {
   throw new Error('Function not implemented.');
-}*/
 }
+}*/
 

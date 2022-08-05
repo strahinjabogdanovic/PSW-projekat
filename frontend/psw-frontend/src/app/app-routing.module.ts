@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminHomePageComponent } from './pages/admin-home-page/admin-home-page.component';
+import { AppointmentObserveComponent } from './pages/appointment-observe/appointment-observe.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PatientHomePageComponent } from './pages/patient-home-page/patient-home-page.component';
@@ -16,7 +17,10 @@ const routes: Routes = [
   { path: 'patientHomePage/:token', component: PatientHomePageComponent},
   { path: 'adminHomePage', component: AdminHomePageComponent},
   { path: 'login/:token', component: LoginComponent},
-  { path: 'recommendedAppointment', component: RecommendAppointmentComponent}
+  { path: 'recommendedAppointment', component: RecommendAppointmentComponent},
+  { path: 'observeAppointments/:token', component: AppointmentObserveComponent},
+  { path: 'observeAppointments', component: AppointmentObserveComponent}
+
 
 ];
 

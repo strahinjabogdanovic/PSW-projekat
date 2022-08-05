@@ -28,18 +28,18 @@ namespace PswProject.service
         {
             List<Appointment> appointments = ObserveAppointmentsSqlRepository.GetById(id);
 
-            //return Appointment.StatusAppointment(appointments);
+            //return Appointment.StatusAppointment(appointments);            ?!?
             return appointments;
         }
 
         //CancelAppointments
-        //trenutno ne treba
-        /*public bool CancelAppointment(int appointmentId)
+        public bool CancelAppointment(int appointmentId)
         {
             Appointment appointment = AppointmentRepository.GetByAppointmentId(appointmentId);
-            appointment.SetCancel(appointment);
+            appointment.isCancelled = true;
+            appointment.canCancel = false;
             bool retVal = AppointmentRepository.Update(appointment);
             return retVal;
-        }*/
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace PswProject.repository
         }
 
         internal List<Appointment> GetById(int id)
-        {   //popravljaj
+        {   
             return context.Appointments.Where(s => s.UserId == id).ToList();
         }
 

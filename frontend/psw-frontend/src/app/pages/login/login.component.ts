@@ -12,7 +12,57 @@ import { UserDto } from './user.dto';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  userDto: UserDto = { Username: "", Password: ""}
 
+  loginForm: FormGroup;
+
+  token: string = ""
+
+  constructor(private loginService: UserService, private router: Router,private formBuilder: FormBuilder) { 
+    this.loginForm = formBuilder.group({
+      title: formBuilder.control('initial value', Validators.required)
+    });
+  }
+
+  ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      Username: ['', Validators.required],
+      Password: ['', Validators.required]
+    });
+  }
+
+  onSubmit() {
+    console.log(this.userDto.Username);
+    console.log(this.userDto.Password);
+
+    this.loginService.login(this.userDto).subscribe((data: any)=>{
+      localStorage.setItem("jwtToken", data);
+      let tokenInfo = this.getDecodedToken(data);
+      localStorage.setItem('Id', tokenInfo.Id);
+      localStorage.setItem('Role', tokenInfo.Role);
+      console.log(tokenInfo.Role);
+      console.log(data);
+      this.router.navigate(['/observeAppointments']);
+    });
+
+  
+  }
+
+  getDecodedToken(token: string): any{
+    try{
+      return jwt_decode(token);
+    }
+    catch(Error){
+      token = "";
+    }
+  }
+
+  register(){
+    this.router.navigate(['/registration']);
+  }
+}
+
+  /*
   userDto: UserDto = { Username: "", Password: ""}
   public token: any;
   validateForm!: FormGroup;
@@ -37,7 +87,7 @@ export class LoginComponent implements OnInit {
       },
         error => {
         });
-    }*/
+    }
   }
 
 
@@ -70,7 +120,7 @@ export class LoginComponent implements OnInit {
       }
     }, error => {
         alert(error);
-    })*/
+    })
 
     this.userService.login(this.userDto).subscribe((data: any)=>{
       localStorage.setItem("jwtToken", data);
@@ -101,4 +151,4 @@ export class LoginComponent implements OnInit {
     }
   }
   
-}
+}*/

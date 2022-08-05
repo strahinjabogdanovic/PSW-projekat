@@ -22,9 +22,9 @@ namespace PswProject.controller
             observeAppointmentsService = new ObserveAppointmentsService(new ObserveAppointmentsSqlRepository(context));
         }
 
-        //[HttpGet]
-        [HttpGet("/appointment/{id}")]
-        public IActionResult Get(/*[FromQuery] string */ int id)
+        [HttpGet]
+        //[HttpGet("/observeAppointments/{id}")]
+        public IActionResult Get([FromQuery] int id)
         {
             //int idPatient = Int32.Parse(id);
             List<Appointment> appointments = observeAppointmentsService.GetAppointmentsById(id);

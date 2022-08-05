@@ -14,17 +14,17 @@ namespace PswProject.model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdA { get; set; }
         public DateTime StartTime { get; set; }
-        public int DurationInMinutes { get; private set; }
-        public String AppointmentDescription { get; private set; }
-        public int UserId { get; private set; }
-        public virtual User User { get; private set; }
+        public int DurationInMinutes { get;  set; }
+        public String AppointmentDescription { get;  set; }
+        public int UserId { get;  set; }
+        public virtual User User { get;  set; }
         public int DoctorId { get; set; }
         public virtual Doctor Doctor { get; set; }
         public AppointmentStatus Status { get; set; }
         public int SurveyId { get; set; }
-        public Boolean isCancelled { get; private set; }
-        public Boolean canCancel { get; private set; }
-        public Boolean IsDeleted { get; private set; }
+        public Boolean isCancelled { get;  set; }
+        public Boolean canCancel { get;  set; }
+        public Boolean IsDeleted { get;  set; }
 
         public Appointment() { }
 

@@ -38,7 +38,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     PatientHomePageComponent,
     AdminHomePageComponent,
     AppointmentObserveComponent,
-    RecommendAppointmentComponent
+    RecommendAppointmentComponent,
   ],
     imports: [
     MatSnackBarModule,

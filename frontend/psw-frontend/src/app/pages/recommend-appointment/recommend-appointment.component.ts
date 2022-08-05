@@ -34,7 +34,8 @@ export class RecommendAppointmentComponent implements OnInit {
   start: Date = new Date;
   doctorName: string = "";
   doctorId: number = 0;
-  id: number = 0;
+  id: any = "";
+  IdA: number = 0;
 
   appointment: RecommendedAppointment = {startDate: new Date(),endDate: new Date(), doctorId: 0, specialization: 0, priority: 1};
   public returnAppointment: RecommendAppointmentDto;
@@ -76,7 +77,6 @@ export class RecommendAppointmentComponent implements OnInit {
 
     this.PrepareDTO();
      for(const d of this.doctors){
-      console.log("ovde");
        if(d.nameAndSurname == this.selectedDoctor.name){
          this.returnAppointment.DoctorId = d.idD;
        }
@@ -113,8 +113,7 @@ export class RecommendAppointmentComponent implements OnInit {
   schedule(element: { start: Date; doctorFullName: string; }) {
     this.start = element.start;
     this.doctorName = element.doctorFullName;
-    //this.id = localStorage.getItem('id');
-
+    this.id = localStorage.getItem('id');
     for(const d of this.doctors){
       if(d.nameAndSurname == this.doctorName){
         this.doctorId = d.idD;
@@ -122,8 +121,10 @@ export class RecommendAppointmentComponent implements OnInit {
     }
    
     this.recommendAppointmentService.Schedule(this.start, this.doctorId, this.id).subscribe(data => {
-      console.log(this.doctorId);
-     alert("Zauzet termin u " + this.start);
+     console.log(this.id);
+     console.log(this.doctorId);
+      alert("Zauzet termin u " + this.start);
+     this.router.navigate(['/observeAppointments/' + this.id]);
     });
   }
 
