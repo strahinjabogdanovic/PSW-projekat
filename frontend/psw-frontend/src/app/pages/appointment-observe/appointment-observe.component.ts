@@ -46,7 +46,6 @@ export class AppointmentObserveComponent implements OnInit {
     });
     
   }
-  //idA = localStorage.setItem('this.appointmentIds', this.appointmentId);
 
   ngOnInit(): void {
 
@@ -54,17 +53,7 @@ export class AppointmentObserveComponent implements OnInit {
     console.log(this.id);
 
     this.observeAppointemntsService.GetAppointments(this.id).subscribe((data: any)=>{
-      console.log(data);
-      /*for(const p of (data as any)){
-        this.appointments.push(p);      
-      }*/
-    this.dataSource = data;
-    /*for(const d of this.appointments){
-        console.log(this.appointments);
-      
-    }*/
-
-   
+    this.dataSource = data;   
   });
   }
  

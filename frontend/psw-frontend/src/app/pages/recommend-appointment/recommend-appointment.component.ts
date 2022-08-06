@@ -113,7 +113,7 @@ export class RecommendAppointmentComponent implements OnInit {
   schedule(element: { start: Date; doctorFullName: string; }) {
     this.start = element.start;
     this.doctorName = element.doctorFullName;
-    this.id = localStorage.getItem('id');
+    this.id = localStorage.getItem('Id');
     for(const d of this.doctors){
       if(d.nameAndSurname == this.doctorName){
         this.doctorId = d.idD;
