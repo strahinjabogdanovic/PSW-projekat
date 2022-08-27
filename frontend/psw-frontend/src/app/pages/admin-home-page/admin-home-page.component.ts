@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CommentService } from 'src/app/comment.service';
 import { CommentDTO } from '../comment/comment.dto';
 
 @Component({
@@ -11,8 +12,9 @@ export class AdminHomePageComponent implements OnInit {
   id: any = "";
   public comments: any[];
   public comment: CommentDTO;
+  public content: string = "";
 
-  constructor(private route: ActivatedRoute, private router: Router) { 
+  constructor(private route: ActivatedRoute, private router: Router, private patientCommentService: CommentService) { 
     this.comments = [];
     this.comment = new CommentDTO()
   }
@@ -20,6 +22,22 @@ export class AdminHomePageComponent implements OnInit {
   ngOnInit(): void {
     this.id = localStorage.getItem('Id');
     console.log(this.id);
+
+    this.patientCommentService.GetAprovedComments().subscribe((data: any)=>{
+      for(const p of (data as any)){
+        this.comments.push(p);
+     }
+    })
+  }
+
+  Approve(stagod: any, stagodd: any, stagoddd: any){
+    this.comment.Name = stagod;
+    this.comment.Content = stagodd;
+    this.comment.Rating = stagoddd;
+    console.log(this.comment);
+     this.patientCommentService.SendComment(this.comment).subscribe((data: any)=>{
+      alert("Comment approved");
+    })
   }
 
 }

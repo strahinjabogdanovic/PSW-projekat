@@ -38,8 +38,8 @@ namespace PswProject.controller
         public IActionResult Get()
         {
             repoComment.dbContext = dbContext;
-            List<CommentDTO> result = new List<CommentDTO>();
-            result = repoComment.GetAllAproved();
+            List<Comment> result = new List<Comment>();
+            result = repoComment.GetAll();
             return Ok(result);
         }
 

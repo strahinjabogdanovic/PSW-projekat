@@ -5,12 +5,12 @@
         <mat-card class="example-card">
             <mat-card-title>Review</mat-card-title>
             <mat-card-content>
-              <p>{{ comment.name }}</p>
-              <p>{{ comment.date | date:'short' }}</p>
-              <br>
-              <mat-card-subtitle>Response</mat-card-subtitle>
-              <p><em>"{{ comment.content }}"</em></p>
-            </mat-card-content>
+              <textarea [(ngModel)]="comment.name" [ngModelOptions]="{standalone: true}"><em>"{{ comment.name }}"</em></textarea>
+              <mat-card-subtitle>Response:</mat-card-subtitle>
+              </mat-card-content>
+                <textarea [(ngModel)]="comment.content" [ngModelOptions]="{standalone: true}"><em>"{{ comment.content }}"</em></textarea>
+                <textarea [(ngModel)]="comment.rating" [ngModelOptions]="{standalone: true}"><em>"{{ comment.rating }}"</em></textarea>
+            <button mat-stroked-button id="approve" (click)="Approve(comment.name, comment.content, comment.rating)" class="btn-block">Approve</button>
         </mat-card>
         </div>
         <br>
