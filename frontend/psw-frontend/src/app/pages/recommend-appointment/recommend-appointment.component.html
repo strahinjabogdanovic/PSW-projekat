@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <pm-navigation style="width: 100%;"></pm-navigation>
 <div>
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
@@ -24,10 +25,9 @@
             <mat-form-field appearance="fill" class="width-100">
                 <mat-label>Chosen doctor</mat-label>
                 <mat-select formControlName="doctor" [(ngModel)]="selectedDoctor.name" required>
-                    <mat-option *ngFor="let doctor of doctors" [value]="doctor.nameAndSurname">
-                      <mat-card-title *ngIf="doctor.specialization == 1">{{doctor.nameAndSurname}}</mat-card-title>
-                      
-                      <!--<p *ngIf="doctor.specialityId == 1">dr. {{doctor.nameAndSurname}} - general</p> -->           
+                   <mat-option *ngFor="let doctor of doctors" [value]="doctor.nameAndSurname">
+                     <mat-option *ngIf="doctor.specialization == 0" [ngValue]="doctor.nameAndSurname">{{doctor.nameAndSurname}}</mat-option>
+                     <mat-option *ngIf="doctor.specialization > 0" [ngValue]="doctor.nameAndSurname" disabled>{{doctor.nameAndSurname}}(disabled)</mat-option>
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="hasError('doctor', 'required')">Doctor is required</mat-error>

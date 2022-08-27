@@ -138,5 +138,9 @@ namespace PswProject.repository
             throw new NotImplementedException();
         }
 
+        public Doctor FindDoctorsByUsernameAndPassword(string username, string password)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

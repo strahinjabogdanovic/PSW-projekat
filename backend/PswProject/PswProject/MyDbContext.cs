@@ -12,6 +12,10 @@ namespace PswProject
         public DbSet<User> Users { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<Survey> Survey { get; set; }
+        public DbSet<AnsweredQuestion> AnsweredQuestion { get; set; }
+        public DbSet<SurveyQuestion> SurveyQuestion { get; set; }
+        public DbSet<Comment> Comments { get; set; }
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -31,17 +35,13 @@ namespace PswProject
                 new User(2, "Milica", "Mikic", "mici97", "mici789@", "0652459871", "3009998805137", Role.PATIENT,
                 "Kisacka 5", Gender.FEMALE, false)
                 );
-
-                /*mb.OwnsOne(p => p.MedicalRecord).HasData(
-                  new { PatientId = 1, HealthInsuranceNumber = "1ab", CompanyName = "WellCare" },
-                  new { PatientId = 2, HealthInsuranceNumber = "2ab", CompanyName = "WellCare" });*/
             });
 
             modelBuilder.Entity<Doctor>(mb =>
             {
                 mb.HasData(
-                new Doctor(1, "Milan", "Popovic", Specialization.GENERAL),
-                new Doctor(2, "Milana", "Pilipovic", Specialization.CARDIOLOGIST)
+                new Doctor(1, "Milan Popovic", 0),
+                new Doctor(2, "Milana Pilipovic", 2)
                 );
 
             });
@@ -55,6 +55,24 @@ namespace PswProject
                 new Appointment(4, new DateTime(2022, 01, 30, 14, 00, 00), 30, "All good", 1, 0, AppointmentStatus.UPCOMING, 126)
                 );
             });
+
+            modelBuilder.Entity<SurveyQuestion>(mb =>
+            {
+                mb.HasData(
+                new SurveyQuestion(1, "How satisfied are you with the work of your doctor?", 0, 0),
+                new SurveyQuestion(2, "How satisfied were you with the time that your doctor spent with you?", 0, 0)
+                );
+            });
+
+            modelBuilder.Entity<Comment>(mb =>
+            {
+                mb.HasData(
+                new Comment(1, DateTime.Now, "Good!", "Mika Mikic", false, 3),
+                new Comment(2, DateTime.Now, "I didn't like it.", "Anonymus", true, 5),
+                new Comment(3, DateTime.Now, "Super service!", "Sara Saric", true, 4)
+                );
+            });
+
 
         }
     }

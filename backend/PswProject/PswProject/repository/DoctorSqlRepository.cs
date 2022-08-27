@@ -31,7 +31,7 @@ namespace PswProject.repository
         public List<Doctor> GetDoctorsBySpeciality(int specialityId)
         {
             //return (from n in dbContext.Doctors where n.SpecialityId == specialityId select n).ToList();
-            return (from n in dbContext.Doctors where n.IdD == specialityId select n).ToList();
+            return (from n in dbContext.Doctors where n.SpecializationId == specialityId select n).ToList();
         }
 
         public List<Doctor> GetAll()
@@ -73,7 +73,22 @@ namespace PswProject.repository
             throw new System.NotImplementedException();
         }
 
+        public Doctor FindDoctorsByUsernameAndPassword(String username, String password)
+        {
+            //User user = (from n in dbContext.Users where n.Username.Equals(username) select n).FirstOrDefault();
+            // Console.WriteLine((from n in dbContext.Users.Where(n => n.Username == username && n.Password == password) select n).FirstOrDefault());
+            Doctor doctor = new Doctor();
 
+            foreach (Doctor doctors in dbContext.Doctors)
+            {
+                if (doctors.Username.Equals(username))
+                {
+                    doctor = new Doctor(username, password, doctors);
+                }
+            }
+
+            return doctor;
+        }
 
     }
 }

@@ -10,14 +10,16 @@ const url = 'http://localhost:5000';
   providedIn: 'root'
 })
 export class RecommendAppointmentService {
-  //url: string;
+
   constructor(private http: HttpClient) { 
-   
-    //this.url = "http://" + environment.apiUrl + ":" + environment.port +"/api";
   }
 
   GetAllDoctors(): Observable<any> {
       return this.http.get<any>(url + '/findDoctors');
+  }
+
+  GetAllPatients(): Observable<any> {
+    return this.http.get<any>(url + '/findPatients');
   }
   
   FindAppointments(appointment: RecommendAppointmentDto): Observable<any>{

@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AppointmentObserveService } from 'src/app/appointment.service';
-
 
 export interface Appointment {
   id: number;
@@ -15,7 +14,7 @@ export interface Appointment {
   
 })
 export class AppointmentObserveComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'start time', 'description', 'doctor', 'status','cancel'];
+  displayedColumns: string[] = ['id', 'start time', 'doctor', 'status','cancel', 'survey'];
   dataSource = [];
   surveys: any[] = [];
   appointmentId: any;
@@ -23,11 +22,12 @@ export class AppointmentObserveComponent implements OnInit {
 
   appointments: any[] = [];
 
-
   constructor(private observeAppointemntsService: AppointmentObserveService, private router: Router, private _snackBar: MatSnackBar) { }
 
-  TakeSurvey($myParam: number = 0, $myParam1: number = 0): void {
+  TakeSurvey(idA: number, $myParam: number = 0, $myParam1: number = 0): void {
     const navigationDetails: string[] = ['/survey'];
+    this.appointmentId = idA;
+    localStorage.setItem('idA', this.appointmentId);
     if($myParam && $myParam1) {
       navigationDetails.push($myParam.toString());
       navigationDetails.push($myParam1.toString());
@@ -35,16 +35,15 @@ export class AppointmentObserveComponent implements OnInit {
     this.router.navigate(navigationDetails);
   }
   
-  CancelAppointment(element: { id: number }){
-    this.appointmentId = element.id;
-    
-    this.observeAppointemntsService.CancelAppointment(element.id).subscribe((data: any) =>{
+  CancelAppointment(element: { idA: number }){
+    this.appointmentId = element.idA;
+
+    this.observeAppointemntsService.CancelAppointment(element.idA).subscribe((data: any) =>{
       this.ngOnInit();
       this._snackBar.open('Appointment cancelled!', '', {
         duration: 2000
       });
-    });
-    
+    });  
   }
 
   ngOnInit(): void {
@@ -53,6 +52,7 @@ export class AppointmentObserveComponent implements OnInit {
     console.log(this.id);
 
     this.observeAppointemntsService.GetAppointments(this.id).subscribe((data: any)=>{
+      console.log(data);
     this.dataSource = data;   
   });
   }

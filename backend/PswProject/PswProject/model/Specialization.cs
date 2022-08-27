@@ -7,7 +7,6 @@ namespace PswProject.model
 {
     public enum Specialization
     {
-        //specijalizacija none, bez upotrebe flega
         GENERAL,
         NEUROLOGIST,
         CARDIOLOGIST,

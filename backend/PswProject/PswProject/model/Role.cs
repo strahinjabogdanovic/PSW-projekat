@@ -8,6 +8,7 @@ namespace PswProject.model
     public enum Role
     {
         ADMIN,
-        PATIENT
+        PATIENT,
+        DOCTOR
     }
 }

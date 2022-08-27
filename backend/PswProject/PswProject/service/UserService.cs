@@ -50,7 +50,13 @@ namespace PswProject.service
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             if (user.Role.Equals(Role.PATIENT))
+            {
                 return GenerateJwtTokenPatient(tokenHandler, user);
+            }
+            else if(user.Role.Equals(Role.DOCTOR))
+            {
+                return GenerateJwtTokenDoctor(tokenHandler, user);
+            }
             else
                 return "Ok";
 
@@ -65,6 +71,8 @@ namespace PswProject.service
                 {
                     new Claim("Id", user.Id.ToString()),
                     new Claim("Role", "PATIENT"),
+                    new Claim("Username", user.Username),
+                    new Claim("Password", user.Password)
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.ASCII.GetBytes("QKcOa8xPopVOliV6tpvuWmoKn4MOydSeIzUt4W4r1UlU2De7dTUYMlrgv3rU")), SecurityAlgorithms.HmacSha256Signature)
@@ -72,6 +80,31 @@ namespace PswProject.service
 
             var token = tokenHandler.CreateToken(tokenDeskriptor);
             return tokenHandler.WriteToken(token);
+        }
+
+        private string GenerateJwtTokenDoctor(JwtSecurityTokenHandler tokenHandler, User user)
+        {
+            IdentityOptions options = new IdentityOptions();
+            SecurityTokenDescriptor tokenDeskriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new[]
+                {
+                    new Claim("Id", user.Id.ToString()),
+                    new Claim("Role", "DOCTOR"),
+                    new Claim("Username", user.Username),
+                    new Claim("Password", user.Password)
+                }),
+                Expires = DateTime.UtcNow.AddHours(1),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.ASCII.GetBytes("QKcOa8xPopVOliV6tpvuWmoKn4MOydSeIzUt4W4r1UlU2De7dTUYMlrgv3rU")), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            var token = tokenHandler.CreateToken(tokenDeskriptor);
+            return tokenHandler.WriteToken(token);
+        }
+
+        public List<User> GetAllPatients()
+        {
+            return userSqlRepositorys.GetAll();
         }
     }
 }

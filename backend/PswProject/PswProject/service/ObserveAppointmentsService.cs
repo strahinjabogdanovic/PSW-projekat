@@ -28,8 +28,8 @@ namespace PswProject.service
         {
             List<Appointment> appointments = ObserveAppointmentsSqlRepository.GetById(id);
 
-            //return Appointment.StatusAppointment(appointments);            ?!?
-            return appointments;
+            return Appointment.StatusAppointment(appointments);
+           // return appointments;
         }
 
         //CancelAppointments

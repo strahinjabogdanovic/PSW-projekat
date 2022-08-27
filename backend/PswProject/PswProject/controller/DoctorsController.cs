@@ -35,6 +35,7 @@ namespace PswProject.controller
         {
             List<Doctor> result = new List<Doctor>();
             result = doctorService.GetDoctorsBySpeciality(id);
+            Console.WriteLine(result.ElementAt(id));
             return Ok(result);
         }
 

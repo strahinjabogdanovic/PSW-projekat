@@ -3,7 +3,11 @@
       <a mat-button routerLink="/landingPage">Home</a>
     </span>
     <div class="spacer"></div>
-      <a *ngIf="role != 'PATIENT' && role != 'ADMIN'" mat-button routerLink="/registration">Registration</a>
-      <a *ngIf="role != 'PATIENT' && role != 'ADMIN'" mat-button routerLink="/login">Login</a>
-      <a *ngIf="role != 'PATIENT'" mat-button routerLink="/recommendedAppointment">Appointments</a>
+      <a *ngIf="role === ''" mat-button routerLink="/registration">Registration</a>
+      <a *ngIf="role === ''" mat-button routerLink="/login">Login</a>
+      <a *ngIf="role === 'PATIENT'" mat-button routerLink="/recommendedAppointment">Create appointment</a>
+      <a *ngIf="role === 'PATIENT'" mat-button routerLink="/observeAppointments">Appointments</a>
+      <a *ngIf="role === 'PATIENT'" mat-button routerLink="/comments">Comment</a>
+      <a *ngIf="role === 'DOCTOR'" mat-button routerLink="/specialistAppointment">Create appointment</a>
+      <button *ngIf="role !== ''" mat-raised-button (click)="LogOut()">Log Out</button>
 </mat-toolbar>

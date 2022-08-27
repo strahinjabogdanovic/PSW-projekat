@@ -11,5 +11,6 @@ namespace PswProject.repository
         List<Doctor> GetDoctorsWithSpeciality(Specialization specialization);
         List<Doctor> GetDoctorsBySpeciality(int specialityId);
         public Doctor GetDoctorBy(int id);
+        public Doctor FindDoctorsByUsernameAndPassword(String username, String password);
     }
 }

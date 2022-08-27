@@ -1,4 +1,9 @@
 .mat-toolbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100% !important;
     background-color: rgb(181, 87, 171);
     color: black;
 }

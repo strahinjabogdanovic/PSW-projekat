@@ -42,17 +42,34 @@ namespace PswProject.repository
             return user;
         }
 
+        public List<User> GetAll()
+        {
+            //foreach (Doctor doctors in dbContext.Doctors)
+            //{
+            //    if (doctors.Username.Equals(username))
+            //    {
+            //        doctor = new Doctor(username, password, doctors);
+            //    }
+            //}
+            //List<User> userList = new List<User>();
+            //foreach (User users in dbContext.Users)
+            //{
+            //    if (users.Role.Equals("PATIENT"))
+            //    {
+            //        userList.Add(users);
+            //        Console.WriteLine(users);
+            //    }
+            //}
+            //return dbContext.Users.ToList();
+            return dbContext.Users.ToList();
+        }
+
         public bool Delete(string id)
         {
             throw new NotImplementedException();
         }
 
         public User findOneByUsername(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<User> GetAll()
         {
             throw new NotImplementedException();
         }

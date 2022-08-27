@@ -27,6 +27,9 @@ import { MatNativeDateModule} from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { CommonModule } from '@angular/common';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { SpecialistAppointmentComponent } from './pages/specialist-appointment/specialist-appointment.component';
+import { SurveyComponent } from './pages/survey/survey.component';
+import { CommentComponent } from './pages/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     AdminHomePageComponent,
     AppointmentObserveComponent,
     RecommendAppointmentComponent,
+    SpecialistAppointmentComponent,
+    SurveyComponent,
+    CommentComponent,
   ],
     imports: [
     MatSnackBarModule,

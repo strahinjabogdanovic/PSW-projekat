@@ -16,15 +16,16 @@ namespace PswProject.controller
     public class UserController : ControllerBase
     {
         public UserService userService;
+        public DoctorService doctorService;
         private readonly MyDbContext dbContext;
 
         public UserController(MyDbContext context) 
         {
             dbContext = context;
             userService = new UserService(new UserSqlRepository(context));
+            doctorService = new DoctorService(new DoctorSqlRepository(context));
         }
 
-        //[HttpPost]
         [HttpPost("/registration")]
         public IActionResult Post(RegistrationDTO registrationDTO)
         {
@@ -45,16 +46,24 @@ namespace PswProject.controller
         public IActionResult Login(UserDTO userDTO)
         {
             User user = userService.FindByUsernameAndPassword(userDTO.Username, userDTO.Password);
-            if (user != null)
+
+            foreach (User u in dbContext.Users)
             {
-                String jwtToken = userService.GenerateJwtToken(user);
-                Console.WriteLine(jwtToken);
-                return Ok(jwtToken);
+                if (userDTO.Password == u.Password)
+                {
+                    if (user != null)
+                    {
+                        String jwtToken = userService.GenerateJwtToken(user);
+                        Console.WriteLine(user);
+                        return Ok(jwtToken);
+                    }
+                    else
+                    {
+                        return Unauthorized();
+                    }
+                }
             }
-            else
-            {
-                return Unauthorized();
-            }
+            return Unauthorized();
         }
 
     }

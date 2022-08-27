@@ -35,9 +35,15 @@ namespace PswProject.service
         {
             return DoctorSqlRepository.GetAll();
         }
+
         public List<Doctor> GetDoctorsBySpeciality(int specialityId)
         {
             return DoctorSqlRepository.GetDoctorsBySpeciality(specialityId);
+        }
+
+        public Doctor FindDoctorsByUsernameAndPassword(String username, String password)
+        {
+            return DoctorSqlRepository.FindDoctorsByUsernameAndPassword(username, password);
         }
     }
 }

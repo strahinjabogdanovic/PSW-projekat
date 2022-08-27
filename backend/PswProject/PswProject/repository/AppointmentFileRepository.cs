@@ -45,7 +45,6 @@ namespace PswProject.repository
                 JObject appointmentForSerialization = JObject.FromObject(appointment);
 
                 appointmentForSerialization.Add("patientId", appointment.User.Jmbg);
-                //appointmentForSerialization.Add("roomId", appointment.Room.RoomNumber);
                 appointmentForSerialization.Add("doctorId", appointment.Doctor.IdD);
 
                 appointmentsForSerialization.Add(appointmentForSerialization);

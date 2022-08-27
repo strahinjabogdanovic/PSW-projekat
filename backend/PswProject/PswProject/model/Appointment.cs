@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel;
+using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace PswProject.model
 {
@@ -80,6 +82,23 @@ namespace PswProject.model
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
+        }
+
+        public List<Appointment> StatusAppointment(List<Appointment> appointments)
+        {
+            foreach (Appointment a in appointments)
+            {
+                if (a.isCancelled)
+                    a.Status = AppointmentStatus.CANCELLED;
+                else if (a.StartTime < DateTime.Now)
+                    a.Status = AppointmentStatus.DONE;
+                else if (a.StartTime > DateTime.Now)
+                    a.Status = AppointmentStatus.UPCOMING;
+
+                if (a.StartTime.Day < DateTime.Now.Day + 3)
+                    a.canCancel = false;
+            }
+            return appointments;
         }
 
         public DateTime EndTime

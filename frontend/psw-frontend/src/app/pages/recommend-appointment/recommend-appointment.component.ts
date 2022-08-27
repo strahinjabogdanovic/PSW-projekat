@@ -7,7 +7,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AvailableRecommendedAppointments } from './available-recommended-appointments';
 import { Router } from '@angular/router';
 
-
 export interface SelectedDoctor{
   name: string;
 }
@@ -72,9 +71,8 @@ export class RecommendAppointmentComponent implements OnInit {
       }
     })
   }
-
+//if u 80 redu izbaciti i naterati ga da kada je prioritet na vremenu prikaye sve termine svih doktora
   onSubmit(){
-
     this.PrepareDTO();
      for(const d of this.doctors){
        if(d.nameAndSurname == this.selectedDoctor.name){
@@ -121,9 +119,7 @@ export class RecommendAppointmentComponent implements OnInit {
     }
    
     this.recommendAppointmentService.Schedule(this.start, this.doctorId, this.id).subscribe(data => {
-     console.log(this.id);
-     console.log(this.doctorId);
-      alert("Zauzet termin u " + this.start);
+      alert("Zauzeli ste termin u " + this.start);
      this.router.navigate(['/observeAppointments/' + this.id]);
     });
   }

@@ -16,8 +16,6 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  token: string = ""
-
   constructor(private loginService: UserService, private router: Router,private formBuilder: FormBuilder) { 
     this.loginForm = formBuilder.group({
       title: formBuilder.control('initial value', Validators.required)
@@ -40,9 +38,22 @@ export class LoginComponent implements OnInit {
       let tokenInfo = this.getDecodedToken(data);
       localStorage.setItem('Id', tokenInfo.Id);
       localStorage.setItem('Role', tokenInfo.Role);
+      localStorage.setItem('Username', tokenInfo.Username);
+      localStorage.setItem('Password', tokenInfo.Password);
+      if(localStorage.getItem('Password') !== this.userDto.Password){
+        alert("Pogresna lozinka!");
+      }
       console.log(tokenInfo.Role);
       console.log(data);
-      this.router.navigate(['/observeAppointments']);
+      if(localStorage.getItem('Role') === 'PATIENT'){
+        this.router.navigate(['/observeAppointments']);
+      }else if(localStorage.getItem('Role') === 'DOCTOR'){
+        this.router.navigate(['/specialistAppointment']);
+      }
+      else
+      {
+        this.router.navigate(['/landingPage']);
+      }
     });
 
   

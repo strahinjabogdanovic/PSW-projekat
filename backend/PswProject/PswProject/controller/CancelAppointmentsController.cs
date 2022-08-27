@@ -23,7 +23,6 @@ namespace PswProject.controller
             observeAppointmentsService = new ObserveAppointmentsService(new ObserveAppointmentsSqlRepository(context));
         }
 
-
         [HttpPost("/cancelAppointments")]
         public IActionResult CancelAppointment([FromBody] int appointmentId)
         {

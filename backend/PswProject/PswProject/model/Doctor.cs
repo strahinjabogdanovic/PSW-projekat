@@ -16,13 +16,36 @@ namespace PswProject.model
         
         public Specialization Specialization { get; set; }
 
+        public int SpecializationId { get; set; }
+
+        public String Username { get; set; }
+        public String Password { get; set; }
         public Doctor() { }
 
-        public Doctor(int id, string name, string surname, Specialization specialization)
+        public Doctor(String username, String password, Doctor d)
+        {
+            IdD = d.IdD;
+            NameAndSurname = d.NameAndSurname;
+            Specialization = d.Specialization;
+            SpecializationId = d.SpecializationId;
+            Username = username;
+            Password = password;
+        }
+
+        public Doctor(int id, string name, int specializationId)
         {
             this.IdD = id;
             this.NameAndSurname = name;
-            this.Specialization = specialization;
+            this.SpecializationId = specializationId;
+        }
+
+        public Doctor(int id, string name, int specializationId, string username, string password)
+        {
+            this.IdD = id;
+            this.NameAndSurname = name;
+            this.SpecializationId = specializationId;
+            this.Username = username;
+            this.Password = password;
         }
     }
 }
