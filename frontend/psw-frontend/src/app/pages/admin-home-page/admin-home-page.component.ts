@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CommentDTO } from '../comment/comment.dto';
 
 @Component({
   selector: 'app-admin-home-page',
@@ -7,19 +8,18 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./admin-home-page.component.css']
 })
 export class AdminHomePageComponent implements OnInit {
-  public token: any;
-  public decodedToken: any;
+  id: any = "";
+  public comments: any[];
+  public comment: CommentDTO;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) { 
+    this.comments = [];
+    this.comment = new CommentDTO()
+  }
 
   ngOnInit(): void {
-    this.getToken();
-  }
-  private getToken(): void {
-    if (this.decodedToken !== null) {
-      alert("Ne mozete da pristupite ovoj stranici!");
-      this.router.navigate(['patientHomePage']);
-    }
+    this.id = localStorage.getItem('Id');
+    console.log(this.id);
   }
 
 }

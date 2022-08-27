@@ -9,5 +9,6 @@
       <a *ngIf="role === 'PATIENT'" mat-button routerLink="/observeAppointments">Appointments</a>
       <a *ngIf="role === 'PATIENT'" mat-button routerLink="/comments">Comment</a>
       <a *ngIf="role === 'DOCTOR'" mat-button routerLink="/specialistAppointment">Create appointment</a>
+      <a *ngIf="role === 'ADMIN'" mat-button routerLink="/adminHomePage">Homepage</a>
       <button *ngIf="role !== ''" mat-raised-button (click)="LogOut()">Log Out</button>
 </mat-toolbar>
