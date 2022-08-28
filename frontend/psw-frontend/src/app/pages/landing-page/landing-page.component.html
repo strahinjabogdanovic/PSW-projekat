@@ -10,24 +10,22 @@
 </div>
 <div class="comments">
     <h2>Comments</h2>
-<!--<div *ngFor="let comments of allComments">
-    <div class="review-holder">
-    <mat-card class="example-card">
-      <img [src]="post.image"/>
-      <br>
-        <mat-card-content class="mat-card-font">
-          <p *ngIf="post.link!=true"><b>Caption:</b> {{ post.postInfo.caption }} </p>
-          <p *ngIf="post.link==true"><b>Link: </b>
-          <a href = "{{ post.postInfo.caption }}"> {{ post.postInfo.caption }} </a></p>
-          <p *ngIf="post.likeIds != null"><b>Likes:</b> {{ post.likeIds.length }} </p>
-          <p *ngIf="post.dislikeIds != null"><b>Dislikes:</b> {{ post.dislikeIds.length }} </p>
-          <mat-card-content *ngFor="let comment of post.comments">
-            <p><b>Comments:</b> {{ comment.content }}</p>
-          </mat-card-content>
-        </mat-card-content>
-    </mat-card>
+    <div class="reviews-holder">
+      <div *ngFor="let comment of comments">
+          <div class="review-holder">
+          <mat-card class="example-card">
+              <mat-card-title>Review</mat-card-title>
+              <mat-card-content>
+                <p>{{ comment.name }}</p>
+                <p>{{ comment.date | date:'short' }}</p>
+                <br>
+                <mat-card-subtitle>Response</mat-card-subtitle>
+                <p><em>"{{ comment.content }}"</em></p>
+              </mat-card-content>
+          </mat-card>
+          </div>
+          <br>
+          <br>
+      </div>
     </div>
-    <br>
-    <br>
-</div>-->
   </div>

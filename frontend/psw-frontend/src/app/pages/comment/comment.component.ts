@@ -43,6 +43,8 @@ export class CommentComponent implements OnInit {
     this.comment.Content = this.content;
     this.comment.Date = this.today;
     this.comment.Rating = this.rating;
+    this.comment.CanPublish = false;
+    //this.comment.isVisible = 0;
     if(this.anonymous == true){
     this.comment.Name = "anonymous";
     }

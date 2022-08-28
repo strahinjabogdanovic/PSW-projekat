@@ -13,7 +13,8 @@ export class AdminHomePageComponent implements OnInit {
   public comments: any[];
   public comment: CommentDTO;
   public content: string = "";
-
+  public disabled = true;
+  
   constructor(private route: ActivatedRoute, private router: Router, private patientCommentService: CommentService) { 
     this.comments = [];
     this.comment = new CommentDTO()
@@ -34,10 +35,21 @@ export class AdminHomePageComponent implements OnInit {
     this.comment.Name = stagod;
     this.comment.Content = stagodd;
     this.comment.Rating = stagoddd;
+   /* if(this.comment.CanPublish == true){
+      this.disabled = true;
+    }else{
+      this.disabled = false;
+    }*/
+    this.disabled = !this.disabled;
     console.log(this.comment);
      this.patientCommentService.SendComment(this.comment).subscribe((data: any)=>{
       alert("Comment approved");
     })
+  }
+
+  Remove(){
+    alert("Maknuto");
+    this.disabled = !this.disabled;
   }
 
 }
