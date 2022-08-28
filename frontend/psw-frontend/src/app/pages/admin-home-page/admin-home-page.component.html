@@ -11,8 +11,8 @@
                 <textarea [(ngModel)]="comment.content" [ngModelOptions]="{standalone: true}"><em>"{{ comment.content }}"</em></textarea>
                 <textarea [(ngModel)]="comment.rating" [ngModelOptions]="{standalone: true}"><em>"{{ comment.rating }}"</em></textarea>
                 <kendo-buttongroup>
-                <button kendoButton [disabled]="!disabled" mat-stroked-button id="approve" (click)="Approve(comment.name, comment.content, comment.rating)" class="btn-block">Approve</button>
-                <button kendoButton [disabled]="disabled" mat-stroked-button id="remote" (click)="Remove(comment.name, comment.content, comment.rating)" class="btn-block">Remove from frontpage</button>
+                <button kendoButton mat-stroked-button id="approve" (click)="Approve(comment.name, comment.content, comment.rating)" class="btn-block">Approve</button>
+                <button kendoButton mat-stroked-button id="remote" (click)="Remove(comment.name, comment.content, comment.rating)" class="btn-block">Remove from frontpage</button>
                 </kendo-buttongroup>
         </mat-card>
         
