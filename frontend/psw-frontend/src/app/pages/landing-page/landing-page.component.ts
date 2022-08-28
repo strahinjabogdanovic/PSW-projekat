@@ -16,7 +16,7 @@ export class LandingPageComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.patientCommentService.GetAprovedComments().subscribe((data: any)=>{
+    this.patientCommentService.GetAp().subscribe((data: any)=>{
       for(const p of (data as any)){
         this.comments.push(p);
         console.log(data);

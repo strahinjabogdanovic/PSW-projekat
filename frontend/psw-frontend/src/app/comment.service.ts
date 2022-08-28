@@ -23,4 +23,8 @@ export class CommentService {
     SendComment(comment: CommentDTO):Observable<any> {
       return this.http.post<any>(url + "/comments", comment, { responseType: 'text' as 'json'});
     }
+
+    GetAp(): Observable<any>{
+      return this.http.get<any>(url + '/commentAp');
+    }
 }

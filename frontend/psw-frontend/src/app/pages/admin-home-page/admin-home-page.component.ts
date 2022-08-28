@@ -35,11 +35,6 @@ export class AdminHomePageComponent implements OnInit {
     this.comment.Name = stagod;
     this.comment.Content = stagodd;
     this.comment.Rating = stagoddd;
-   /* if(this.comment.CanPublish == true){
-      this.disabled = true;
-    }else{
-      this.disabled = false;
-    }*/
     this.disabled = !this.disabled;
     console.log(this.comment);
      this.patientCommentService.SendComment(this.comment).subscribe((data: any)=>{
@@ -47,9 +42,16 @@ export class AdminHomePageComponent implements OnInit {
     })
   }
 
-  Remove(){
+  Remove(stagod: any, stagodd: any, stagoddd: any){
     alert("Maknuto");
+    this.comment.Name = stagod;
+    this.comment.Content = stagodd;
+    this.comment.Rating = stagoddd;
+    this.comment.CanPublish = false;
     this.disabled = !this.disabled;
+    console.log(this.comment);
+     this.patientCommentService.SendComment(this.comment).subscribe((data: any)=>{
+    })
   }
 
 }

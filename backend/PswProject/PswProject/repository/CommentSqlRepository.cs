@@ -34,10 +34,11 @@ namespace PswProject.repository
             }
             else
             {
-                //dbContext.Comments.
-                Console.WriteLine();
-                comment.Id = GetAll().Count + 1;
-                dbContext.Comments.Add(comment);
+                var com = dbContext.Comments.Where(u => u.Content.Equals(comment.Content)).FirstOrDefault();
+                com.canPublish = true;
+                //comment.Id = GetAll().Count + 1;
+                //dbContext.Comments.Add(comment);
+                //com.Id = GetAll().Count + 1;
                 dbContext.SaveChanges();
                 return true;
             }
