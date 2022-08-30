@@ -11,9 +11,17 @@
         <td mat-cell *matCellDef="let element"> {{element.surname}} </td>
       </ng-container>
     
-      <ng-container matColumnDef="numOfC">
+      <ng-container matColumnDef="numOfC" class="blocked">
         <th mat-header-cell *matHeaderCellDef> Number of cancellations </th>
-        <td mat-cell *matCellDef="let element"> {{element.numOfC}} </td>
+        <td mat-cell *matCellDef="let element"> 
+          <span *ngIf="element.numOfC > 1" [ngStyle]="{'font-size': '30px', 'color': 'red', 'font-weight': 'bold'}" >
+            <p>{{element.numOfC}}</p>
+          </span>
+          <span *ngIf="element.numOfC < 2" [ngStyle]="{'color': 'black'}" >
+            <p>{{element.numOfC}}</p>
+          </span>
+          
+        </td>
       </ng-container>
   
       <ng-container matColumnDef="blocked">
