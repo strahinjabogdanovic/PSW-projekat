@@ -129,5 +129,21 @@ namespace PswProject.service
         {
             return userSqlRepositorys.GetAll();
         }
+
+        public bool BlockUser(int id)
+        {
+            User u = userSqlRepositorys.GetOne(id.ToString());
+            u.Blocked = true;
+            bool retVal = userSqlRepositorys.Update(u);
+            return retVal;
+        }
+
+        public bool UnblockUser(int id)
+        {
+            User u = userSqlRepositorys.GetOne(id.ToString());
+            u.Blocked = false;
+            bool retVal = userSqlRepositorys.Update(u);
+            return retVal;
+        }
     }
 }

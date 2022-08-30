@@ -12,6 +12,7 @@ import { BUserDto } from './buser.dto';
 export class UserListComponent implements OnInit {
   public users: any[];
   public user: BUserDto;
+  public id: any; 
 
   constructor(private route: ActivatedRoute, private router: Router, private ras: RecommendAppointmentService) { 
     this.users = [];
@@ -26,7 +27,16 @@ export class UserListComponent implements OnInit {
     })
   }
 
-  Block(){}
-  Unblock(){}
+  Block(id: number){
+    this.ras.BlockUser(id).subscribe((data: any) =>{
+       alert("User is blocked.")
+    });  
+  }
 
+
+  Unblock(id: number){
+        this.ras.UnblockUser(id).subscribe((data: any) =>{
+          alert("User is no longer blocked.")
+      });  
+  }
 }

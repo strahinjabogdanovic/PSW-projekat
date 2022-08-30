@@ -78,7 +78,8 @@ namespace PswProject.repository
 
         public User GetOne(string id)
         {
-            throw new NotImplementedException();
+            int b = int.Parse(id);
+            return dbContext.Users.Where(f => f.Id == b).FirstOrDefault();
         }
 
         public User save(User user)
@@ -93,7 +94,9 @@ namespace PswProject.repository
 
         public bool Update(User editedObject)
         {
-            throw new NotImplementedException();
+            dbContext.Users.Update(editedObject);
+            dbContext.SaveChanges();
+            return true;
         }
     }
 }

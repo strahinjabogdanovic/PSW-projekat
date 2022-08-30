@@ -22,5 +22,19 @@ namespace PswProject.controller
         {
             return Ok(userService.GetAllPatients());
         }
+        [HttpPost("/block")]
+        public IActionResult BlockUser([FromBody] int IdU)
+        {
+            userService.BlockUser(IdU);
+            return Ok();
+        }
+
+        [HttpPost("/unblock")]
+        public IActionResult UnblockUser([FromBody] int IdU)
+        {
+            userService.UnblockUser(IdU);
+            return Ok();
+        }
+
     }
 }

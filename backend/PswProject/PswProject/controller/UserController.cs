@@ -46,24 +46,31 @@ namespace PswProject.controller
         public IActionResult Login(UserDTO userDTO)
         {
             User user = userService.FindByUsernameAndPassword(userDTO.Username, userDTO.Password);
-
-            foreach (User u in dbContext.Users)
+            if (user.Blocked == false)
             {
-                if (userDTO.Password == u.Password)
+                foreach (User u in dbContext.Users)
                 {
-                    if (user != null)
+                    if (userDTO.Password == u.Password)
                     {
-                        String jwtToken = userService.GenerateJwtToken(user);
-                        Console.WriteLine(user);
-                        return Ok(jwtToken);
-                    }
-                    else
-                    {
-                        return Unauthorized();
+                        if (user != null)
+                        {
+                            String jwtToken = userService.GenerateJwtToken(user);
+                            Console.WriteLine(user);
+                            return Ok(jwtToken);
+                        }
+                        else
+                        {
+                            return Unauthorized();
+                        }
                     }
                 }
+                return Unauthorized();
             }
-            return Unauthorized();
+            else
+            {
+                Console.WriteLine("blokiran");
+                return Unauthorized();
+            }
         }
 
     }
