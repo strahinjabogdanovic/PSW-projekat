@@ -22,7 +22,6 @@ export class AdminHomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = localStorage.getItem('Id');
-    console.log(this.id);
 
     this.patientCommentService.GetAprovedComments().subscribe((data: any)=>{
       for(const p of (data as any)){
@@ -36,7 +35,6 @@ export class AdminHomePageComponent implements OnInit {
     this.comment.Content = stagodd;
     this.comment.Rating = stagoddd;
     this.disabled = !this.disabled;
-    console.log(this.comment);
      this.patientCommentService.SendComment(this.comment).subscribe((data: any)=>{
       alert("Comment approved");
     })
@@ -49,8 +47,7 @@ export class AdminHomePageComponent implements OnInit {
     this.comment.Rating = stagoddd;
     this.comment.CanPublish = false;
     this.disabled = !this.disabled;
-    console.log(this.comment);
-     this.patientCommentService.SendComment(this.comment).subscribe((data: any)=>{
+    this.patientCommentService.SendComment(this.comment).subscribe((data: any)=>{
     })
   }
 

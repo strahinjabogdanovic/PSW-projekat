@@ -14,9 +14,13 @@ export class RecommendAppointmentService {
   constructor(private http: HttpClient) { 
   }
 
-  GetAllDoctors(): Observable<any> {
+  GetAllSpecDoctors(): Observable<any> {
       return this.http.get<any>(url + '/findDoctors');
   }
+
+  GetAllGeneralDoctors(): Observable<any> {
+    return this.http.get<any>(url + '/general');
+}
 
   GetAllPatients(): Observable<any> {
     return this.http.get<any>(url + '/findPatients');

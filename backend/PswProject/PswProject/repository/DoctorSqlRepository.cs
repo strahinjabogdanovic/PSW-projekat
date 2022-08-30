@@ -36,7 +36,7 @@ namespace PswProject.repository
 
         public List<Doctor> GetAll()
         {
-             return dbContext.Doctors.ToList();
+            return dbContext.Doctors.Where(f => f.Specialization != Specialization.GENERAL).ToList();
         }
 
         public Doctor GetOne(int id)
@@ -63,9 +63,11 @@ namespace PswProject.repository
         {
             /*var d = dbContext.Doctors.OrderBy(p => p.NumberOfPatients).FirstOrDefault();
             List<Doctor> retVal = (List<Doctor>)dbContext.Doctors.ToList().Where(s => s.Specialization.Equals("GENERAL")).Where(s => s.NumberOfPatients <= d.NumberOfPatients + 2).ToList();
-            */
+            
             List<Doctor> retVal = (List<Doctor>)dbContext.Doctors.ToList().Where(s => s.Specialization.Equals("GENERAL"));
-            return retVal;
+            return retVal;*/
+
+            return dbContext.Doctors.Where(f => f.Specialization == Specialization.GENERAL).ToList();
         }
 
         public bool Delete(int id)

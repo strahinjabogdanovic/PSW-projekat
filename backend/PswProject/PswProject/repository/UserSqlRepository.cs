@@ -61,7 +61,9 @@ namespace PswProject.repository
             //    }
             //}
             //return dbContext.Users.ToList();
-            return dbContext.Users.ToList();
+            //return dbContext.Users.ToList();
+
+            return dbContext.Users.Where(f => f.Role == Role.PATIENT).ToList();
         }
 
         public bool Delete(string id)

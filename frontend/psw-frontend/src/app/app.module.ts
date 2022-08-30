@@ -32,6 +32,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { SpecialistAppointmentComponent } from './pages/specialist-appointment/specialist-appointment.component';
 import { SurveyComponent } from './pages/survey/survey.component';
 import { CommentComponent } from './pages/comment/comment.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { CommentComponent } from './pages/comment/comment.component';
     SpecialistAppointmentComponent,
     SurveyComponent,
     CommentComponent,
+    UserListComponent,
   ],
     imports: [
     MatSnackBarModule,

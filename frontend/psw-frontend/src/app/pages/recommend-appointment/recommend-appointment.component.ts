@@ -64,7 +64,7 @@ export class RecommendAppointmentComponent implements OnInit {
       priority: ['', Validators.required]
     });
 
-    this.recommendAppointmentService.GetAllDoctors().subscribe((data: any)=>{
+    this.recommendAppointmentService.GetAllGeneralDoctors().subscribe((data: any)=>{
       console.log(data);
       for(const p of (data as any)){
         this.doctors.push(p);      

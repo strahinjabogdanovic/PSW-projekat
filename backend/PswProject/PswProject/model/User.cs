@@ -23,6 +23,7 @@ namespace PswProject.model
         public String Address { get; set; }
         public Gender Gender { get; set; }
         public Boolean Blocked { get; set; }
+        public int NumOfC { get; set; }
 
         public User() { }
 

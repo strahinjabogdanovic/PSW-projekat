@@ -72,14 +72,12 @@ export class SpecialistAppointmentComponent implements OnInit {
     });
 
     this.recommendAppointmentService.GetAllPatients().subscribe((data: any)=>{
-      console.log(data);
-      for(const p of (data as any)){
+       for(const p of (data as any)){
         this.patients.push(p);      
       }
     })
 
-    this.recommendAppointmentService.GetAllDoctors().subscribe((data: any)=>{
-      console.log(data);
+    this.recommendAppointmentService.GetAllSpecDoctors().subscribe((data: any)=>{
       for(const p of (data as any)){
         this.doctors.push(p);      
       }

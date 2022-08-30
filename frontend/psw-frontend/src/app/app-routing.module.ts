@@ -10,6 +10,7 @@ import { RecommendAppointmentComponent } from './pages/recommend-appointment/rec
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { SpecialistAppointmentComponent } from './pages/specialist-appointment/specialist-appointment.component';
 import { SurveyComponent } from './pages/survey/survey.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
 
 const routes: Routes = [
   { path: '', pathMatch:'full', redirectTo:'landingPage'},
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'survey', component: SurveyComponent},
   { path: 'survey/:id/:ap', component: SurveyComponent},
   { path: 'comments', component: CommentComponent, pathMatch: 'full'},
+  { path: 'userList', component: UserListComponent},
 ];
 
 @NgModule({

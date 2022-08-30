@@ -22,7 +22,7 @@ namespace PswProject.controller
             doctorService = new DoctorService(new DoctorSqlRepository(context));
         }
 
-        [HttpGet]
+        [HttpGet("/general")]
         public IActionResult Get()
         {
             List<Doctor> result = new List<Doctor>();

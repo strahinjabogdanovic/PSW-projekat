@@ -61,5 +61,13 @@ namespace PswProject.repository
         {
             throw new NotImplementedException();
         }
+
+        public void GetUserByApId(Appointment appointment)
+        {
+            User u = context.Users.Where(f => f.Id == appointment.UserId).FirstOrDefault();
+            //u.NumOfC = u.NumOfC + 1;
+            Console.WriteLine(u.NumOfC);
+            context.SaveChanges();
+        }
     }
 }

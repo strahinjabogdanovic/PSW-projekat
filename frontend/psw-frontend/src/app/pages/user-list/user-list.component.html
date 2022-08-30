@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+   <div class="reviews-holder">
+    <div *ngFor="let user of users">
+        <div class="review-holder">
+        <mat-card class="example-card">
+            <mat-card-content>
+              <textarea [(ngModel)]="user.name" [ngModelOptions]="{standalone: true}"><em>"{{ user.name }}"</em></textarea>
+            </mat-card-content>
+                <textarea [(ngModel)]="user.surname" [ngModelOptions]="{standalone: true}"><em>"{{ user.surname }}"</em></textarea>
+                <textarea [(ngModel)]="user.NumOfC" [ngModelOptions]="{standalone: true}"><em>"{{ user.NumOfC }}"</em></textarea>
+                <kendo-buttongroup>
+                <button kendoButton mat-stroked-button id="block" (click)="Block()" class="btn-block">Block user</button>
+                <button kendoButton mat-stroked-button id="unblock" (click)="Unblock()" class="btn-block">Unblock user</button>
+                </kendo-buttongroup>
+        </mat-card>
+        
+        </div>
+        
+        <br>
+        <br>
+    </div>
+    
