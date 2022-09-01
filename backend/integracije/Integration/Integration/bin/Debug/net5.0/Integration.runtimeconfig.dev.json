@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Strahx\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Strahx\\.nuget\\packages"
+    ]
+  }
+}

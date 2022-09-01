@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Integration.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,8 @@ namespace Integration
 {
     public class MyDbContext : DbContext
     {
+        public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<Drugs> Drugs { get; set; }
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -67,7 +67,7 @@ namespace Integration
             var server = Configuration["DBServer"] ?? "localhost";
             var port = Configuration["DBPort"] ?? "5432";
             var user = Configuration["DBUser"] ?? "postgres";
-            var password = Configuration["DBPassword"] ?? "lp0m3217";
+            var password = Configuration["DBPassword"] ?? "123";
             var database = Configuration["DB"] ?? "psw";
 
             if (server == null) return ConfigurationExtensions.GetConnectionString(Configuration, "MyDbContextConnectionString");

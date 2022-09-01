@@ -14,7 +14,7 @@ export interface Appointment {
   
 })
 export class AppointmentObserveComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'start time', 'doctor', 'status','cancel', 'survey'];
+  displayedColumns: string[] = ['id', 'start time', 'doctor', 'status','cancel', 'survey', 'recipe'];
   dataSource = [];
   surveys: any[] = [];
   appointmentId: any;
@@ -44,6 +44,15 @@ export class AppointmentObserveComponent implements OnInit {
         duration: 2000
       });
     });  
+  }
+
+  Recipe(element: {idA: number}){
+    this.appointmentId = element.idA;
+    this.observeAppointemntsService.TakeRecipe(this.appointmentId).subscribe((data: any)=>{
+      this.dataSource = data;   
+
+    });
+    this.ngOnInit();
   }
 
   ngOnInit(): void {

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LENOVO\\Desktop\\PSW-projekat\\backend\\integracije\\Integration\\Integration\\Integration.csproj": {}
+    "C:\\Users\\Strahx\\Desktop\\PSW\\PSW-projekat\\backend\\integracije\\Integration\\Integration\\Integration.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LENOVO\\Desktop\\PSW-projekat\\backend\\integracije\\Integration\\Integration\\Integration.csproj": {
+    "C:\\Users\\Strahx\\Desktop\\PSW\\PSW-projekat\\backend\\integracije\\Integration\\Integration\\Integration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LENOVO\\Desktop\\PSW-projekat\\backend\\integracije\\Integration\\Integration\\Integration.csproj",
+        "projectUniqueName": "C:\\Users\\Strahx\\Desktop\\PSW\\PSW-projekat\\backend\\integracije\\Integration\\Integration\\Integration.csproj",
         "projectName": "Integration",
-        "projectPath": "C:\\Users\\LENOVO\\Desktop\\PSW-projekat\\backend\\integracije\\Integration\\Integration\\Integration.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LENOVO\\Desktop\\PSW-projekat\\backend\\integracije\\Integration\\Integration\\obj\\",
+        "projectPath": "C:\\Users\\Strahx\\Desktop\\PSW\\PSW-projekat\\backend\\integracije\\Integration\\Integration\\Integration.csproj",
+        "packagesPath": "C:\\Users\\Strahx\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Strahx\\Desktop\\PSW\\PSW-projekat\\backend\\integracije\\Integration\\Integration\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Strahx\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -97,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
         }
       }
     }

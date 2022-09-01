@@ -50,6 +50,7 @@ namespace PswProject.controller
         [HttpPost("/sendRecipe")]
         public IActionResult SendRecipe(RecipeDTO recipe)
         {
+            Console.WriteLine(recipe.IdR);
             Recipe r = new Recipe(recipe.IdR, recipe.Medicine, recipe.Quantity, recipe.Instructions);
             oas.SendRecipe(r);
             return Ok();

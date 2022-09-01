@@ -38,18 +38,16 @@ namespace PswProject.repository
 
         public Appointment GetOne(int id)
         {
-            Console.WriteLine("ovde2");
             Appointment a = context.Appointments.Where(f => f.IdA == id).FirstOrDefault();
-            a.RecipeId = context.Recipes.Count() + 1;
             a.Status = AppointmentStatus.DONE;
+            a.RecipeId = id;
             context.SaveChanges();
             return a;
         }
 
-        public void AddRecipeToDB(Recipe r, int IdA)
+        public void AddRecipeToDB(Recipe r)
         {
-            Console.WriteLine("ovde4");
-            Recipe newR = new Recipe(IdA, r.Medicine, r.Quantity, r.Instructions);
+            Recipe newR = new Recipe(r.IdR, r.Medicine, r.Quantity, r.Instructions);
             context.Recipes.Add(newR);
             context.SaveChanges();
         }
@@ -61,7 +59,6 @@ namespace PswProject.repository
 
         public bool Update(Appointment editedObject)
         {
-            Console.WriteLine("ovde3");
             context.Appointments.Update(editedObject);
             context.SaveChanges();
             return true;

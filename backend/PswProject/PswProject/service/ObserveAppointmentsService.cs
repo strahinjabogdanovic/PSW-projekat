@@ -54,8 +54,7 @@ namespace PswProject.service
         {
             Appointment a = ObserveAppointmentsSqlRepository.GetOne(recipe.IdR);
             bool retVal = ObserveAppointmentsSqlRepository.Update(a);
-            Console.WriteLine(a.Status);
-            ObserveAppointmentsSqlRepository.AddRecipeToDB(recipe, a.RecipeId);
+            ObserveAppointmentsSqlRepository.AddRecipeToDB(recipe);
             return retVal;
         }
     }
