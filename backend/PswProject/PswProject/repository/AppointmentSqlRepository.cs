@@ -1,4 +1,5 @@
-﻿using PswProject.model;
+﻿using PswProject.dto;
+using PswProject.model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,24 @@ namespace PswProject.repository
 
         public Appointment GetOne(int id)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("ofdg");
+            Appointment a = dbContext.Appointments.Where(f => f.IdA == id).FirstOrDefault();
+            a.RecipeId = GetAll().Count + 1;
+            return a;
+        }
+
+        public void AddRecipeToDB(Recipe r, int IdA)
+        {
+            List<Recipe> recipes = dbContext.Recipes.ToList();
+            foreach(Recipe rr in recipes)
+            {
+                rr.Medicine = r.Medicine;
+                rr.Quantity = r.Quantity;
+                rr.Instructions = r.Instructions;
+                rr.IdR = IdA;
+                dbContext.Recipes.Add(rr);
+            }
+            dbContext.SaveChanges();
         }
 
         public bool Save(Appointment appointment)
@@ -42,7 +60,9 @@ namespace PswProject.repository
 
         public bool Update(Appointment editedObject)
         {
-            throw new NotImplementedException();
+            dbContext.Appointments.Update(editedObject);
+            dbContext.SaveChanges();
+            return true;
         }
         //popraviti
         public List<Appointment> GetOccupiedAppointmentsByDoctorAndDate(int idDoctor, DateTime chosenDate)

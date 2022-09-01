@@ -14,7 +14,7 @@ namespace PswProject.service
     {
         private const int appointmentDurationInMunutes = 30;
         private AppointmentRepository AppointmentRepository { get; set; }
-        private AppointmentSqlRepository AppointmentSqlRepository { get; set; }
+        private AppointmentSqlRepository AppointmentSqlRepositorys { get; set; }
         private Appointment ChangingAppointment { get; set; }
         private RecommendedAppointmentSqlRepository RecommendedAppointmentSqlRepository { get; set; }
         private DoctorRepository DoctorRepository { get; set; }
@@ -48,7 +48,7 @@ namespace PswProject.service
         public AppointmentService(AppointmentSqlRepository appointmentSqlRepository)
         {
             AppointmentRepository = appointmentSqlRepository;
-            AppointmentSqlRepository = appointmentSqlRepository;
+            AppointmentSqlRepositorys = appointmentSqlRepository;
         }
 
         public AppointmentService(RecommendedAppointmentSqlRepository recommendedAppointmentSqlRepository,
@@ -74,7 +74,7 @@ namespace PswProject.service
         {
             List<Appointment> appointments = new List<Appointment>();
             List<Appointment> occupiedAppointments = new List<Appointment>();
-            occupiedAppointments.AddRange(AppointmentSqlRepository.GetOccupiedAppointmentsByDoctorAndDate(idDoctor, chosenDate));
+            occupiedAppointments.AddRange(AppointmentSqlRepositorys.GetOccupiedAppointmentsByDoctorAndDate(idDoctor, chosenDate));
 
             if (occupiedAppointments.Count == 0)
             {
@@ -92,7 +92,7 @@ namespace PswProject.service
 
         public void SaveAppointmentSql(Appointment appointment, MyDbContext dbContext)
         {
-            AppointmentSqlRepository.Save(appointment);
+            AppointmentSqlRepositorys.Save(appointment);
         }
 
         private List<Appointment> RemoveAppointmentFromAppointmentList(Appointment occupiedAppointment, DateTime chosenDate)
@@ -324,6 +324,15 @@ namespace PswProject.service
             for (DateTime date = start; date.Date <= end.Date; date = date.AddDays(1))
                 availableAppointments.AddRange(GetAvailable(doctorId, date));
             return availableAppointments;
+        }
+
+        public bool SendRecipe(Recipe recipe) 
+        {
+            Console.WriteLine("ovde1");
+            Appointment a = AppointmentSqlRepositorys.GetOne(recipe.IdR);
+            bool retVal = AppointmentSqlRepositorys.Update(a);
+            AppointmentSqlRepositorys.AddRecipeToDB(recipe, a.RecipeId);
+            return retVal;
         }
 
     }

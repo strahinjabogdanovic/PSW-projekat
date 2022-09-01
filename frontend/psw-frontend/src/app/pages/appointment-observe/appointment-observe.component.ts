@@ -52,9 +52,8 @@ export class AppointmentObserveComponent implements OnInit {
     console.log(this.id);
 
     this.observeAppointemntsService.GetAppointments(this.id).subscribe((data: any)=>{
-      console.log(data);
-    this.dataSource = data;   
-  });
+      this.dataSource = data;   
+    });
   }
  
 

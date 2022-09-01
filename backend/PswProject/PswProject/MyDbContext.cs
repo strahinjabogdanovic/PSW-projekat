@@ -16,6 +16,7 @@ namespace PswProject
         public DbSet<AnsweredQuestion> AnsweredQuestion { get; set; }
         public DbSet<SurveyQuestion> SurveyQuestion { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

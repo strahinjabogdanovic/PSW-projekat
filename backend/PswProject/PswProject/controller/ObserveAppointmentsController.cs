@@ -22,10 +22,17 @@ namespace PswProject.controller
             observeAppointmentsService = new ObserveAppointmentsService(new ObserveAppointmentsSqlRepository(context));
         }
 
-        [HttpGet]
+        [HttpGet("/observeAppointments")]
         public IActionResult Get([FromQuery] int id)
         {
             List<Appointment> appointments = observeAppointmentsService.GetAppointmentsById(id);
+            return Ok(appointments);
+        }
+
+        [HttpGet("/doctorsAppointments")]
+        public IActionResult GetDoctorsAppointments([FromQuery] int id)
+        {
+            List<Appointment> appointments = observeAppointmentsService.GetDoctorsAppointmentsById(id);
             return Ok(appointments);
         }
     }

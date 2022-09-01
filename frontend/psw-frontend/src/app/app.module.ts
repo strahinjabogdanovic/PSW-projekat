@@ -33,6 +33,9 @@ import { SpecialistAppointmentComponent } from './pages/specialist-appointment/s
 import { SurveyComponent } from './pages/survey/survey.component';
 import { CommentComponent } from './pages/comment/comment.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
+import { DoctorHomePageComponent } from './pages/doctor-home-page/doctor-home-page.component';
+import { GiveRecipeComponent } from './pages/give-recipe/give-recipe.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -49,6 +52,8 @@ import { UserListComponent } from './pages/user-list/user-list.component';
     SurveyComponent,
     CommentComponent,
     UserListComponent,
+    DoctorHomePageComponent,
+    GiveRecipeComponent,
   ],
     imports: [
     MatSnackBarModule,
@@ -69,7 +74,8 @@ import { UserListComponent } from './pages/user-list/user-list.component';
     ReactiveFormsModule,
     FormsModule,
     CommonModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDialogModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
