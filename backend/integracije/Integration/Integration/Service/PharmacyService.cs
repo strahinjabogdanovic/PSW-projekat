@@ -38,5 +38,11 @@ namespace Integration.Service
             return psr.GetOne(id);
         }
 
+        public List<Storage> GetAllD()
+        {
+            List<Storage> d = psr.GetAllD();
+            return d;
+        }
+
     }
 }

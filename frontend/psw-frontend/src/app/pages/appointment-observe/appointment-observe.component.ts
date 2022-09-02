@@ -53,12 +53,12 @@ export class AppointmentObserveComponent implements OnInit {
 
     });
     this.ngOnInit();
+    window.location.reload();
   }
 
   ngOnInit(): void {
 
     this.id = localStorage.getItem('Id');
-    console.log(this.id);
 
     this.observeAppointemntsService.GetAppointments(this.id).subscribe((data: any)=>{
       this.dataSource = data;   

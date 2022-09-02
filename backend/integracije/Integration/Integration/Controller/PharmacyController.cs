@@ -24,12 +24,8 @@ namespace Integration.Controller
         [HttpPost("/takeRecipe")]
         public IActionResult TakeRecipe([FromBody] int id)
         {
-            Console.WriteLine(id);
-            Console.WriteLine("ne radi");
             Recipe rr = ps.GetRecipes(id);
             //Recipe r = new Recipe(recipe.IdR, recipe.Medicine, recipe.Quantity, recipe.Instructions);
-            Console.WriteLine(rr.Quantity);
-            Console.WriteLine(rr.Medicine);
             if (ps.CheckRecipe(rr) == true)
             {
                 return Ok();
@@ -40,5 +36,12 @@ namespace Integration.Controller
                 return BadRequest();
             }
         }
+        [HttpGet("/getDrugs")]
+        public IActionResult GetDrugs()
+        {
+            
+            return Ok(ps.GetAllD());
+        }
+
     }
 }

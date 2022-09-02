@@ -4,6 +4,7 @@ import { AdminHomePageComponent } from './pages/admin-home-page/admin-home-page.
 import { AppointmentObserveComponent } from './pages/appointment-observe/appointment-observe.component';
 import { CommentComponent } from './pages/comment/comment.component';
 import { DoctorHomePageComponent } from './pages/doctor-home-page/doctor-home-page.component';
+import { DrugsComponent } from './pages/drugs/drugs.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PatientHomePageComponent } from './pages/patient-home-page/patient-home-page.component';
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'survey/:id/:ap', component: SurveyComponent},
   { path: 'comments', component: CommentComponent, pathMatch: 'full'},
   { path: 'userList', component: UserListComponent},
-  { path: 'doctorHomePage', component: DoctorHomePageComponent}
+  { path: 'doctorHomePage', component: DoctorHomePageComponent},
+  { path: 'drugs', component: DrugsComponent},
 ];
 
 @NgModule({

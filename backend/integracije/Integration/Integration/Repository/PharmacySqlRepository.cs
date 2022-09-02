@@ -30,13 +30,19 @@ namespace Integration.Repository
 
         public Drugs GetOneDrug(string medicine)
         {
-            return context.Drugs.Where(f => f.Medicine.Equals(medicine)).FirstOrDefault();
+            return context.DrugsInPharmacy.Where(f => f.Medicine.Equals(medicine)).FirstOrDefault();
         }
         public bool Update(Drugs editedObject)
         {
-            context.Drugs.Update(editedObject);
+            context.DrugsInPharmacy.Update(editedObject);
             context.SaveChanges();
             return true;
+        }
+
+        public List<Storage> GetAllD() 
+        {
+            List<Storage> d = context.DrugsInStorage.ToList();
+            return d;
         }
 
         public bool Save(Recipe newObject)

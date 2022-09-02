@@ -10,7 +10,8 @@ namespace Integration
     public class MyDbContext : DbContext
     {
         public DbSet<Recipe> Recipes { get; set; }
-        public DbSet<Drugs> Drugs { get; set; }
+        public DbSet<Drugs> DrugsInPharmacy { get; set; }
+        public DbSet<Storage> DrugsInStorage { get; set; }
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

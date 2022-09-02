@@ -36,6 +36,8 @@ import { UserListComponent } from './pages/user-list/user-list.component';
 import { DoctorHomePageComponent } from './pages/doctor-home-page/doctor-home-page.component';
 import { GiveRecipeComponent } from './pages/give-recipe/give-recipe.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ReplenishDrugsComponent } from './pages/replenish-drugs/replenish-drugs.component';
+import { DrugsComponent } from './pages/drugs/drugs.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     UserListComponent,
     DoctorHomePageComponent,
     GiveRecipeComponent,
+    ReplenishDrugsComponent,
+    DrugsComponent,
   ],
     imports: [
     MatSnackBarModule,

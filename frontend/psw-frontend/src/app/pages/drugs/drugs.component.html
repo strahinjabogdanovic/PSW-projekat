@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div>
+<table id="tableA" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="idL">
+      <th mat-header-cell *matHeaderCellDef> Number in DB</th>
+      <td mat-cell *matCellDef="let element"> {{element.idL}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="medicine">
+      <th mat-header-cell *matHeaderCellDef> Medicine name </th>
+      <td mat-cell *matCellDef="let element"> {{element.medicine}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef> Quantity from storage</th>
+      <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mgs">
+        <th mat-header-cell *matHeaderCellDef> Strenght (in mgs)</th>
+        <td mat-cell *matCellDef="let element"> {{element.mgs}} </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+<div class="dugme">
+  <button id="replenishButton" (click)="Replenish()">Order medicine</button> 
+</div>
