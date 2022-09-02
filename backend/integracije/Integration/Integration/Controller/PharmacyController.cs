@@ -1,4 +1,5 @@
-﻿using Integration.Model;
+﻿using Integration.DTO;
+using Integration.Model;
 using Integration.Repository;
 using Integration.Service;
 using Microsoft.AspNetCore.Mvc;
@@ -41,6 +42,21 @@ namespace Integration.Controller
         {
             
             return Ok(ps.GetAllD());
+        }
+
+        [HttpPost("/replenish")]
+        public IActionResult Replenish([FromBody] DrugDTO dd)
+        {
+            Drugs d = ps.FindDrugPharmacy(dd.medicine);
+            Storage s = ps.FindDrugStorage(dd.medicine);
+            if (ps.AddDrugsToStorage(d, s, dd.quantity) == true)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
     }

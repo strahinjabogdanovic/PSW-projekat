@@ -44,5 +44,34 @@ namespace Integration.Service
             return d;
         }
 
+        public Drugs FindDrugPharmacy(string m)
+        {
+            return psr.GetOneDrug(m);
+        }
+
+        public Storage FindDrugStorage(string m)
+        {
+            return psr.GetOneStorage(m);
+        }
+
+        public bool AddDrugsToStorage(Drugs d, Storage s, string quantity)
+        {
+            int quantityInt = int.Parse(quantity);
+            int quantityD = int.Parse(d.Quantity);
+            int quantityS = int.Parse(s.Quantity);
+            if ((quantityD - quantityInt) > 0)
+            {
+                d.Quantity = (quantityD - quantityInt).ToString();
+                psr.Update(d);
+                s.Quantity = (quantityS + quantityInt).ToString();
+                psr.Update(s);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }

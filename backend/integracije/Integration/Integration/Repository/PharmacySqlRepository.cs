@@ -32,9 +32,21 @@ namespace Integration.Repository
         {
             return context.DrugsInPharmacy.Where(f => f.Medicine.Equals(medicine)).FirstOrDefault();
         }
+
+        public Storage GetOneStorage(string medicine)
+        {
+            return context.DrugsInStorage.Where(f => f.Medicine.Equals(medicine)).FirstOrDefault();
+        }
         public bool Update(Drugs editedObject)
         {
             context.DrugsInPharmacy.Update(editedObject);
+            context.SaveChanges();
+            return true;
+        }
+
+        public bool Update(Storage editedObject)
+        {
+            context.DrugsInStorage.Update(editedObject);
             context.SaveChanges();
             return true;
         }

@@ -33,9 +33,14 @@ export class AppointmentObserveService {
     return this.http.post<any>(urlA + "/takeRecipe", id);
   }
 
-  /*Replenish(): Observable<any> {
-    return this.http.post<any>(urlA + "/replenish");
-  }*/
+  Replenish(medicine: string, quantity: string): Observable<any> {
+    const body = {
+      Medicine: medicine,
+      Quantity: quantity,
+    }
+    console.log(body);
+    return this.http.post<any>(urlA + "/replenish", body);
+  }
 
   GetDrugs(): Observable<any> {
     return this.http.get<any>(urlA + "/getDrugs");

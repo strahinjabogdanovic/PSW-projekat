@@ -1,1 +1,28 @@
-<p>replenish-drugs works!</p>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Order medicine</mat-card-title>
+      </mat-card-header>
+      <div mat-dialog-content>
+      <form [formGroup]="recipeForm" class="example-form">
+        <div class="example-container">
+            <mat-form-field appearance="fill" class="width-100">
+                <mat-label>Choose medicine</mat-label>
+                <mat-select formControlName="medicine" [(ngModel)]="selectedMedicine.medicine" required>
+                   <mat-option *ngFor="let drugs of medicines" [value]="drugs.medicine">
+                    <mat-option [ngValue]="drugs.medicine">{{drugs.medicine}}</mat-option>
+                   </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill" class="width-100">
+              <mat-label>Quantity</mat-label><!--ng model fali -->
+              <input [(ngModel)]="selectedMedicine.quantity" id = "quantity" type="text"  matInput placeholder="" formControlName="quantity" required/>
+            </mat-form-field>
+            </div>
+        <button id="send" mat-stroked-button color="accent" class="btn-block" (click)="Send()">Order</button>
+      </form>
+    </div>
+    </mat-card>
+  </div>
+
