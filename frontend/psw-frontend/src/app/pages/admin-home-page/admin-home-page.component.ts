@@ -9,11 +9,13 @@ import { CommentDTO } from '../comment/comment.dto';
   styleUrls: ['./admin-home-page.component.css']
 })
 export class AdminHomePageComponent implements OnInit {
+  displayedColumns: string[] = ['name', 'content', 'rating', 'approve', 'remove'];
   id: any = "";
   public comments: any[];
   public comment: CommentDTO;
   public content: string = "";
   public disabled = true;
+  dataSource = [];
   
   constructor(private route: ActivatedRoute, private router: Router, private patientCommentService: CommentService) { 
     this.comments = [];
@@ -26,6 +28,7 @@ export class AdminHomePageComponent implements OnInit {
     this.patientCommentService.GetAprovedComments().subscribe((data: any)=>{
       for(const p of (data as any)){
         this.comments.push(p);
+        this.dataSource = data;
      }
     })
   }
@@ -38,6 +41,7 @@ export class AdminHomePageComponent implements OnInit {
      this.patientCommentService.SendComment(this.comment).subscribe((data: any)=>{
       alert("Comment approved");
     })
+    window.location.reload();
   }
 
   Remove(stagod: any, stagodd: any, stagoddd: any){
@@ -49,6 +53,7 @@ export class AdminHomePageComponent implements OnInit {
     this.disabled = !this.disabled;
     this.patientCommentService.SendComment(this.comment).subscribe((data: any)=>{
     })
+    window.location.reload();
   }
 
 }
