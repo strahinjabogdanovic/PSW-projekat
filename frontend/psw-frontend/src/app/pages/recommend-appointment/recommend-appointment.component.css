@@ -78,6 +78,12 @@ body {
   .login-wrapper .btn-block {
     width: 100%;
   }
+
+  .button{
+    font-size: 16px;
+    background-color:  rgb(13, 47, 174);
+    color: white;
+  }
     
   .login-wrapper mat-card-header {
     text-align: center;

@@ -1,8 +1,11 @@
 table {
-    margin: 60px auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 100% !important;
-    }
+  margin: 60px auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100% !important;
+  }
+.button{
+  font-size: 16px;
+}

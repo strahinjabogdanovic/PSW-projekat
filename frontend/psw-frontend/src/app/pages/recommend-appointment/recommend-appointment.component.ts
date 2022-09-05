@@ -40,7 +40,7 @@ export class RecommendAppointmentComponent implements OnInit {
   public returnAppointment: RecommendAppointmentDto;
 
 
-  displayedColumns: string[] = ['position', 'Date', 'Time', 'Doctor', '#'];
+  displayedColumns: string[] = ['position', 'Doctor', 'Date', 'Time', '#'];
 
   constructor(private recommendAppointmentService: RecommendAppointmentService,private formBuilder: FormBuilder, private _snackBar: MatSnackBar, private router: Router) {
     this.returnAppointment = new RecommendAppointmentDto(); 

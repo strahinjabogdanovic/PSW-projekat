@@ -3,22 +3,22 @@
 <table id="tableA" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="idL">
-      <th mat-header-cell *matHeaderCellDef> Number in DB</th>
+      <th mat-header-cell *matHeaderCellDef style="font-size: 16px;"> Number in DB</th>
       <td mat-cell *matCellDef="let element"> {{element.idL}} </td>
     </ng-container>
   
     <ng-container matColumnDef="medicine">
-      <th mat-header-cell *matHeaderCellDef> Medicine name </th>
+      <th mat-header-cell *matHeaderCellDef style="font-size: 16px;"> Medicine name </th>
       <td mat-cell *matCellDef="let element"> {{element.medicine}} </td>
     </ng-container>
   
     <ng-container matColumnDef="quantity">
-      <th mat-header-cell *matHeaderCellDef> Quantity from storage</th>
+      <th mat-header-cell *matHeaderCellDef style="font-size: 16px;"> Quantity from storage</th>
       <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
     </ng-container>
 
     <ng-container matColumnDef="mgs">
-        <th mat-header-cell *matHeaderCellDef> Strenght (in mgs)</th>
+        <th mat-header-cell *matHeaderCellDef style="font-size: 16px;"> Strenght (in mgs)</th>
         <td mat-cell *matCellDef="let element"> {{element.mgs}} </td>
       </ng-container>
 
@@ -27,5 +27,5 @@
   </table>
 </div>
 <div class="dugme">
-  <button id="replenishButton" (click)="Replenish()">Order medicine</button> 
+  <button id="replenishButton" (click)="Replenish()" style="border: 1px solid rgb(13, 47, 174); font-size: 16px; color: black;">Order medicine</button> 
 </div>

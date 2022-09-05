@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   userDto: UserDto = { Username: "", Password: ""}
 
   loginForm: FormGroup;
+  hide: boolean = true;
 
   constructor(private loginService: UserService, private router: Router,private formBuilder: FormBuilder) { 
     this.loginForm = formBuilder.group({
@@ -30,9 +31,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.userDto.Username);
-    console.log(this.userDto.Password);
-
     this.loginService.login(this.userDto).subscribe((data: any)=>{
       localStorage.setItem("jwtToken", data);
       let tokenInfo = this.getDecodedToken(data);
@@ -71,95 +69,4 @@ export class LoginComponent implements OnInit {
   register(){
     this.router.navigate(['/registration']);
   }
-}
-
-  /*
-  userDto: UserDto = { Username: "", Password: ""}
-  public token: any;
-  validateForm!: FormGroup;
-  hide: boolean = true;
-  //role: string = "";
-  public decodedToken :any;
-
-  constructor(private route: ActivatedRoute, private fb: FormBuilder, private router: Router, private userService : UserService) { }
-
-  ngOnInit(): void {
-    this.validateForm = this.fb.group({
-      username: [null, [Validators.required]],
-      password: [null, [Validators.required]]
-    });
-    //this.getToken();
-    //const token = this.route.snapshot.params['token'];
-    
-   /* const token = this.route.snapshot.params['token'];
-    if (token != undefined) {
-      this.rrService.confirmRegistrationRequest(token).subscribe(() => {
-        this.router.navigateByUrl(`/login`);
-      },
-        error => {
-        });
-    }
-  }
-
-
-
-  submitForm(): void {
-    for (const i in this.validateForm.controls) {
-      this.validateForm.controls[i].markAsDirty();
-      this.validateForm.controls[i].updateValueAndValidity();
-    }
-
-    this.userDto.Username = this.validateForm.value.username;
-    this.userDto.Password = this.validateForm.value.password;
-    console.log(this.userDto.Username)
-    
-    /*this.userService.login(this.userDto).subscribe(data => {
-      const user = data;
-      localStorage.setItem('user', JSON.stringify(user));
-      localStorage.setItem('token', JSON.stringify(user.token));
-      
-      sessionStorage.setItem('username', user.username);
-      let authString = 'Basic ' + btoa(user.username + ':' + user.password);
-      sessionStorage.setItem('basicauth', authString);
-      console.log(this.getDecodedAccessToken(data.token));
-      console.log(data.token);
-      if(this.getDecodedAccessToken(user.token)['Role'] === 'PATIENT'){
-        this.router.navigate(['patientHomePage']);
-      }
-      else if(this.getDecodedAccessToken(user.token).Role === 'ADMIN'){
-        this.router.navigate(['adminHomePage']);
-      }
-    }, error => {
-        alert(error);
-    })
-
-    this.userService.login(this.userDto).subscribe((data: any)=>{
-      localStorage.setItem("jwtToken", data);
-      let tokenInfo = this.getDecodedAccessToken(data);
-      if(tokenInfo !== null){
-      localStorage.setItem('Id', tokenInfo.Id);
-      localStorage.setItem('Role', tokenInfo.Role);
-            if((tokenInfo.Role) === 'PATIENT'){
-        this.router.navigate(['patientHomePage']);
-      }
-    }
-      else {
-        this.router.navigate(['adminHomePage']);
-      }
-    });
-  
-
-
-  }
-
-  getDecodedAccessToken(token: string): any {
-    try {
-      return jwt_decode(token);
-      console.log(jwt_decode(token));
-    }
-    catch (Error) {
-      return null;
-    }
-  }
-  
-}*/
+} 

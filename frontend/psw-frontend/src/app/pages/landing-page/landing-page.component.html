@@ -1,20 +1,18 @@
 <app-navbar></app-navbar>
-<div class="background">
-    <h1>Welcome to hospital!</h1>
-        <div class="box">
-             <h2 style="margin-left: 5%;">About us</h2>
-             <p class="paragraph">Years ago, a small group of home care leaders and providers noticed a need in their industry and decided to face a new endeavor, head-on. At the grassroots level, they embarked on a journey to create an accreditation option that was sensitive to the needs of small providers in North Carolina. Their mission: to “ensure a voice for providers.”
-
-            Today, ACHC is an internationally recognized accrediting body with customers throughout the United States and beyond. We remain committed to providers, customer service, and quality patient care.</p>
-        </div>
+<div>
+<div class="left">
+  <h1 class="welcome">Welcome to Blossomvale Medical Clinic</h1>
 </div>
+<hr>
+<br>
+<br>
+<h1 style="height: 30px; margin-left: 5%;">Users feedback and highlighted comments</h1>
 <div class="comments">
-    <h2>Comments</h2>
-    <div class="reviews-holder">
+    <div>
       <div *ngFor="let comment of comments">
           <div class="review-holder">
           <mat-card class="example-card">
-              <mat-card-title>Review</mat-card-title>
+              <mat-card-title>Comment</mat-card-title>
               <mat-card-content>
                 <p>{{ comment.name }}</p>
                 <p>{{ comment.date | date:'short' }}</p>
@@ -29,3 +27,4 @@
       </div>
     </div>
   </div>
+</div>

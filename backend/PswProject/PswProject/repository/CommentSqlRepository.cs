@@ -25,8 +25,8 @@ namespace PswProject.repository
         }
         public bool SaveUserFeedback(Comment comment)
         {
-            var com = dbContext.Comments.Where(u => u.Content.Equals(comment.Content)).FirstOrDefault();
-            if (dbContext.Comments.Find(com.Id) == null)
+            Console.WriteLine(comment.Content);
+            if (dbContext.Comments.Where(u => u.Content.Equals(comment.Content)).FirstOrDefault() == null)
             {
                 comment.Id = GetAll().Count + 1;
                 dbContext.Comments.Add(comment);
@@ -35,16 +35,15 @@ namespace PswProject.repository
             }
             else if (comment.canPublish == false)
             {
+                var com = dbContext.Comments.Where(u => u.Content.Equals(comment.Content)).FirstOrDefault();
                 com.canPublish = false;
                 dbContext.SaveChanges();
                 return true;
             }
             else
             {
-                 com.canPublish = true;
-                //comment.Id = GetAll().Count + 1;
-                //dbContext.Comments.Add(comment);
-                //com.Id = GetAll().Count + 1;
+                var com = dbContext.Comments.Where(u => u.Content.Equals(comment.Content)).FirstOrDefault();
+                com.canPublish = true;
                 dbContext.SaveChanges();
                 return true;
             }

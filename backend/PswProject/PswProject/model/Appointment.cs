@@ -101,7 +101,11 @@ namespace PswProject.model
                     a.Status = AppointmentStatus.DONE;
  
                 if (a.StartTime.Day < DateTime.Now.Day + 3)
+                {
                     a.canCancel = false;
+                }
+                Console.WriteLine(a.canCancel);
+                Console.WriteLine(a.IdA);
             }
             return appointments;
         }

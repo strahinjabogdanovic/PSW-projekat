@@ -6,3 +6,6 @@ table {
   z-index: 2;
   width: 100% !important;
   }
+.button{
+  font-size: 16px;
+}

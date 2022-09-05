@@ -10,7 +10,7 @@ import { BUserDto } from './buser.dto';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'surname', 'numOfC', 'blocked', 'block', 'unblock'];
+  displayedColumns: string[] = ['name', 'surname', 'blocked', 'numOfC', 'block', 'unblock'];
   public users: any[];
   public user: BUserDto;
   public id: any; 

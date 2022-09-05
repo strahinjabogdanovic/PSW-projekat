@@ -2,9 +2,6 @@
 <div class = "survey">
     <h1>{{ pageTitle }}</h1>
 <br>
-<div class="title-text">
-    <label>Doctor</label>       
-</div>
 <div *ngFor="let survey of surveys">
     <div *ngIf="survey.questionType == 0">
         <mat-card class="example-card">
@@ -27,7 +24,7 @@
 
     <div class="div-button">
     <br><br>
-    <button mat-raised-button id="button" color="accent" (click)="onSubmit()">Submit</button>
+    <button mat-raised-button id="button" color="accent" style="background-color: rgb(13, 47, 174); font-size: 20px; color: white;" (click)="onSubmit()">Submit</button>
     <br><br>
     </div>
 </div>

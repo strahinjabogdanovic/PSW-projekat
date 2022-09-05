@@ -289,8 +289,6 @@ namespace PswProject.service
             return availableAppointmentsDTO;
         }
 
-        //zakazivanje
-
         public void Schedule(Appointment appointment)
         {
             AppointmentRepository.Create(appointment);
@@ -298,7 +296,17 @@ namespace PswProject.service
 
         public static Appointment ScheduleAppointmentDTOToAppointment(DateTime start, int doctorId, int patientId)
         {
-            return new Appointment(start, 30, "", false, doctorId, patientId, false, true);
+            bool canCancel = false;
+            if (start.Day < DateTime.Now.Day + 3)
+            {
+                return new Appointment(start, 30, "", false, doctorId, patientId, false, canCancel);
+            }
+            else
+            {
+                canCancel = true;
+                return new Appointment(start, 30, "", false, doctorId, patientId, false, canCancel);
+            }
+            
         }
 
         public List<Appointment> RecommendDatePriority(SearchAppointmentsDTO searchAppointments)

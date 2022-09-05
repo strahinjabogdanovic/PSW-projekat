@@ -18,6 +18,7 @@ export class AppointmentObserveService {
   constructor(private http: HttpClient) {}
   
   GetAppointments(id: number): Observable<any> {
+    console.log(id);
     return this.http.get<any>(url + "/observeAppointments/",{params:{id: id}});
   }
 

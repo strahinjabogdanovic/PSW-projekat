@@ -2,19 +2,27 @@
     <table id="tableA" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <th mat-header-cell *matHeaderCellDef style="font-size: 16px;"> Name </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
     
       <ng-container matColumnDef="surname">
-        <th mat-header-cell *matHeaderCellDef> Surname </th>
+        <th mat-header-cell *matHeaderCellDef style="font-size: 16px;"> Surname </th>
         <td mat-cell *matCellDef="let element"> {{element.surname}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="blocked">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 16px;"> Status</th>
+        <td mat-cell *matCellDef="let element">
+           <div *ngIf="element.blocked==true">BLOCKED</div>
+           <div *ngIf="element.blocked==false">NOT BLOCKED</div>
+            </td>
       </ng-container>
     
       <ng-container matColumnDef="numOfC" class="blocked">
-        <th mat-header-cell *matHeaderCellDef> Number of cancellations </th>
+        <th mat-header-cell *matHeaderCellDef style="font-size: 16px;"> Number of cancellations </th>
         <td mat-cell *matCellDef="let element"> 
-          <span *ngIf="element.numOfC > 1" [ngStyle]="{'font-size': '30px', 'color': 'red', 'font-weight': 'bold'}" >
+          <span *ngIf="element.numOfC > 1" [ngStyle]="{'color': 'red', 'font-size': '30px'}" >
             <p>{{element.numOfC}}</p>
           </span>
           <span *ngIf="element.numOfC < 2" [ngStyle]="{'color': 'black'}" >
@@ -24,22 +32,14 @@
         </td>
       </ng-container>
   
-      <ng-container matColumnDef="blocked">
-        <th mat-header-cell *matHeaderCellDef> Status</th>
-        <td mat-cell *matCellDef="let element">
-           <div *ngIf="element.blocked==true">BLOCKED</div>
-           <div *ngIf="element.blocked==false">NOT BLOCKED</div>
-            </td>
-      </ng-container>
-  
       <ng-container matColumnDef="block">
-        <th mat-header-cell *matHeaderCellDef> Block</th>
-        <td mat-cell *matCellDef="let element"><button id="block" *ngIf="element.blocked===false" (click)="Block(element.id)">Block</button> </td>
+        <th mat-header-cell *matHeaderCellDef style="font-size: 16px;"> Block</th>
+        <td mat-cell *matCellDef="let element"><button class="button" id="block" *ngIf="element.blocked===false" (click)="Block(element.id)">Block</button> </td>
       </ng-container>
   
       <ng-container matColumnDef="unblock">
-        <th mat-header-cell *matHeaderCellDef> Unblock </th>
-        <td mat-cell *matCellDef="let element"><button id="unblock" *ngIf="element.blocked===true" (click)="Unblock(element.id)">Unblock</button> </td>
+        <th mat-header-cell *matHeaderCellDef style="font-size: 16px;"> Unblock </th>
+        <td mat-cell *matCellDef="let element"><button class="button" id="unblock" *ngIf="element.blocked===true" (click)="Unblock(element.id)">Unblock</button> </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
